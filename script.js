@@ -1,37 +1,35 @@
+// Select the background element
+const background = document.getElementById('background');
 
+// Initialize variables for position
+let posX = 50; // initial X position
+let posY = 50; // initial Y position
 
-const ball = document.querySelector(".ball");
-const garden = document.querySelector(".garden");
-const output = document.querySelector(".output");
+// Check for device motion support
+if (window.DeviceMotionEvent) {
+    // Display a permission dialog
+    if (confirm("Do you want to enable motion-based background movement?")) {
+        // Add event listener for device motion
+        window.addEventListener('devicemotion', handleMotion);
 
-const maxX = garden.clientWidth - ball.clientWidth;
-const maxY = garden.clientHeight - ball.clientHeight;
+        function handleMotion(event) {
+            const accelerationX = event.accelerationIncludingGravity.x;
+            const accelerationY = event.accelerationIncludingGravity.y;
 
-function handleOrientation(event) {
-  let x = event.beta; // In degree in the range [-180,180)
-  let y = event.gamma; // In degree in the range [-90,90)
+            // Calculate the new position based on device motion
+            posX += accelerationX / 10; // Adjust the factor as needed
+            posY += accelerationY / 10; // Adjust the factor as needed
 
-  output.textContent = `beta : ${x}\n`;
-  output.textContent += `gamma: ${y}\n`;
+            // Limit the position to stay within the bounds of the screen
+            posX = Math.min(Math.max(posX, 0), 100);
+            posY = Math.min(Math.max(posY, 0), 100);
 
-  // Because we don't want to have the device upside down
-  // We constrain the x value to the range [-90,90]
-  if (x > 90) {
-    x = 90;
-  }
-  if (x < -90) {
-    x = -90;
-  }
-
-  // To make computation easier we shift the range of
-  // x and y to [0,180]
-  x += 90;
-  y += 90;
-
-  // 10 is half the size of the ball
-  // It center the positioning point to the center of the ball
-  ball.style.top = `${(maxY * y) / 180 - 10}px`;
-  ball.style.left = `${(maxX * x) / 180 - 10}px`;
+            // Update the background position
+            background.style.transform = `translate(${posX}%, ${posY}%)`;
+        }
+    } else {
+        alert("Motion-based background movement is disabled.");
+    }
+} else {
+    alert("Device motion is not supported in your browser.");
 }
-
-window.addEventListener("deviceorientation", handleOrientation, true);
