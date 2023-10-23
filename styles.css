@@ -5,8 +5,8 @@ body {
 
 #background {
     position: absolute;
-    height: 200%;
-    width: 200%;
+    height: 300%;
+    width: 300%;
     background: url('./img/ouija-01.png') center center no-repeat;
     background-size: cover;
     transform-origin: center center;
@@ -15,7 +15,7 @@ body {
 
 #info{
     position: fixed;
-    top: 100px;
-    left: 100px;
+    top: 0px;
+    left: 0px;
     z-index: 1;
 }
