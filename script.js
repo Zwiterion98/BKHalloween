@@ -8,7 +8,7 @@ let posY = 50; // initial Y position
 // Check for device motion support
 if (window.DeviceMotionEvent) {
     // Display a permission dialog
-    if (confirm("Do you want to enable motion-based background movement 4?")) {
+    if (confirm("Do you want to enable motion-based background movement 5?")) {
         // Add event listener for device motion
         window.addEventListener('devicemotion', handleMotion);
 
@@ -22,7 +22,7 @@ if (window.DeviceMotionEvent) {
 
             // Limit the position to stay within the bounds of the screen
             posX = Math.min(Math.max(posX, -87), 0);
-            posY = Math.min(Math.max(posY, -70), 0);
+            posY = Math.min(Math.max(posY, -66), 0);
             document.querySelector("#x").innerHTML = `posX: ${posX} accX:${accelerationX}`;
             document.querySelector("#y").innerHTML = `posY: ${posY} accY:${accelerationY}`;
             document.querySelector("#z").innerHTML = `accZ:${accelerationZ}`;

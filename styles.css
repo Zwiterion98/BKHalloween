@@ -14,8 +14,13 @@ body {
 }
 
 #info{
+    
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 50%;
+    left: 60%;
     z-index: 1;
+    height: 100px;
+    width: 100px;
+    border: 3px #FF0000 solid;
+    border-radius: 50%;
 }
