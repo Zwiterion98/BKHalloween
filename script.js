@@ -64,7 +64,8 @@ let positions = [
   
       // Calculate the angle to rotate the pointer
       const angle = Math.atan2(distanceY, distanceX);
-  
+      document.querySelector("#z").innerHTML = `dX:${distanceX} dY:${distanceY} ang:${angle}`;
+           
       // Check if #info is near the target
       if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
         // Change the border color to green
@@ -84,7 +85,7 @@ let positions = [
 // Check for device motion support
 if (window.DeviceMotionEvent) {
     // Display a permission dialog
-    if (confirm("Do you want to enable motion-based background movement 9?")) {
+    if (confirm("Do you want to enable motion-based background movement 10?")) {
         // Add event listener for device motion
         window.addEventListener('devicemotion', handleMotion);
 
@@ -101,7 +102,6 @@ if (window.DeviceMotionEvent) {
             posY = Math.min(Math.max(posY, -66), 0);
             document.querySelector("#x").innerHTML = `posX: ${posX} accX:${accelerationX}`;
             document.querySelector("#y").innerHTML = `posY: ${posY} accY:${accelerationY}`;
-            document.querySelector("#z").innerHTML = `accZ:${accelerationZ}`;
             // Update the background position\
             
             background.style.transform = `translate(${posX}%, ${posY}%)`;
