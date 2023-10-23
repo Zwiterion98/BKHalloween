@@ -16,8 +16,8 @@ body {
 #info{
     
     position: fixed;
-    top: 50%;
-    left: 60%;
+    top: 60vh;
+    left: 45vw;
     z-index: 1;
     height: 100px;
     width: 100px;
