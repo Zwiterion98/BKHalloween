@@ -59,13 +59,12 @@ let positions = [
       const proximityThreshold = 10; // Adjust this value as needed
   
       // Calculate the distance between #info and the target position
-      const distanceX = targetPosition.x - posX;
-      const distanceY = targetPosition.y - posY;
+      const distanceX = Math.abs(targetPosition.x - posX);
+    const distanceY = Math.abs(targetPosition.y - posY);
+
+      // Calculate the angle to rotate the pointer in degrees
+      const angle = Math.atan2(distanceY, distanceX) * (180 / Math.PI);
   
-      // Calculate the angle to rotate the pointer
-      const angle = Math.atan2(distanceY, distanceX);
-      document.querySelector("#z").innerHTML = `dX:${distanceX} dY:${distanceY} ang:${angle}`;
-           
       // Check if #info is near the target
       if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
         // Change the border color to green
@@ -76,9 +75,10 @@ let positions = [
       }
   
       // Rotate the pointer towards the target position
-      infoElement.style.transform = `rotate(${angle}rad)`;
+      infoElement.style.transform = `rotate(${angle}deg)`;
     }
   }
+  
   
   
 
