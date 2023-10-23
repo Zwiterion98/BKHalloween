@@ -115,6 +115,7 @@ if (window.DeviceMotionEvent) {
             let letter = positions[ind].value;
             if(ind < positions.length){
                 ind += searchFor(letter);
+                letter = positions[ind].value;
             }
             
         }
