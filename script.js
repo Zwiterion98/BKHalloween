@@ -33,7 +33,7 @@ let positions = [
     { value: "w", x: -61, y: -29 },
     { value: "x", x: -69, y: -35 },
     { value: "y", x: -76, y: -40 },
-    { value: "z", x: -80, y: -58 },
+    { value: "z", x: -79, y: -46 },
     { value: "0", x: -67, y: -54 },
     { value: "1", x: -17, y: -54 },
     { value: "2", x: -22, y: -54 },
@@ -63,7 +63,7 @@ let positions = [
     const distanceY = Math.abs(targetPosition.y - posY);
 
       // Calculate the angle to rotate the pointer in degrees
-      const angle = Math.atan2(distanceY, distanceX) * (180 / Math.PI);
+      const angle = Math.atan2(distanceY, distanceX) * (360 / Math.PI);
       document.querySelector("#z").innerHTML = `dX:${distanceX} dY:${distanceY} ang:${angle}
                                                tX:${targetPosition.x}
                                                tY:${targetPosition.y} `;
