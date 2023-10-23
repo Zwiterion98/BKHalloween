@@ -68,16 +68,20 @@ let positions = [
                                                tX:${targetPosition.x}
                                                tY:${targetPosition.y} `;
       // Check if #info is near the target
+      
+      // Rotate the pointer towards the target position
+      infoElement.style.transform = `rotate(${angle}deg)`;
+      
       if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
         // Change the border color to green
         infoElement.style.borderColor = "#00FF00";
+        return 1;
       } else {
         // Change the border color back to normal
         infoElement.style.borderColor = "#FF0000";
+        return 0;
       }
   
-      // Rotate the pointer towards the target position
-      infoElement.style.transform = `rotate(${angle}deg)`;
     }
   }
   
