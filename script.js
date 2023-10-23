@@ -17,16 +17,12 @@ if (window.DeviceMotionEvent) {
             const accelerationY = event.accelerationIncludingGravity.y;
             const accelerationZ = event.accelerationIncludingGravity.z;
             // Calculate the new position based on device motion
-            if(posX > -50 && posX < 50){
-                posX += accelerationX / 10; // Adjust the factor as needed
-            }
-            
-            if(posY > -50 && posY < 50){
-                posY += accelerationY / 10; // Adjust the factor as needed
-            }
+            posX += accelerationX / 10; // Adjust the factor as needed
+            posY += accelerationY / 10; // Adjust the factor as needed
+
             // Limit the position to stay within the bounds of the screen
-           // posX = Math.min(Math.max(posX, 0), 100);
-           //posY = Math.min(Math.max(posY, 0), 100);
+            posX = Math.min(Math.max(posX, 0), 100);
+            posY = Math.min(Math.max(posY, 0), 100);
             document.querySelector("#x").innerHTML = `accX:${accelerationX}`;
             document.querySelector("#y").innerHTML = `accY:${accelerationY}`;
             document.querySelector("#z").innerHTML = `accZ:${accelerationZ}`;

@@ -11,5 +11,6 @@ body {
     width: 826%;
     background: url('./img/ouija-01.png') center center no-repeat;
     background-size: cover;
+    transform-origin: center center;
     transform: translate(0, 0);
 }
