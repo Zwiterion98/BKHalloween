@@ -75,18 +75,18 @@ let positions = [
       if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
         // Change the border color to green
         infoElement.style.borderColor = "#00FF00";
-        return 1;
+        ind++;
       } else {
         // Change the border color back to normal
         infoElement.style.borderColor = "#FF0000";
-        return 0;
+        
       }
   
     }
   }
   
   
-  
+  let ind = 0;
 
 // Check for device motion support
 if (window.DeviceMotionEvent) {
@@ -111,11 +111,11 @@ if (window.DeviceMotionEvent) {
             // Update the background position\
             
             background.style.transform = `translate(${posX}%, ${posY}%)`;
-            let ind = 0;
+            
             let letter = positions[ind].value;
             if(ind < positions.length){
-                ind += searchFor(letter);
-                letter = positions[ind].value;
+               searchFor(letter);
+               letter = positions[ind].value;
             }
             
         }
