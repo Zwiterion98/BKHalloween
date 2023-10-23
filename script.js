@@ -13,8 +13,8 @@ if (window.DeviceMotionEvent) {
         window.addEventListener('devicemotion', handleMotion);
 
         function handleMotion(event) {
-            const accelerationX = event.accelerationIncludingGravity.x;
-            const accelerationY = event.accelerationIncludingGravity.y;
+            const accelerationX = event.acceleration.x;
+            const accelerationY = event.acceleration.y;
 
             // Calculate the new position based on device motion
             posX += accelerationX / 10; // Adjust the factor as needed
@@ -23,8 +23,8 @@ if (window.DeviceMotionEvent) {
             // Limit the position to stay within the bounds of the screen
             posX = Math.min(Math.max(posX, 0), 100);
             posY = Math.min(Math.max(posY, 0), 100);
-            document.querySelector("#x").innerHTML = `accX:${posX}`;
-            document.querySelector("#y").innerHTML = `accY:${posY}`;
+            document.querySelector("#x").innerHTML = `accX:${accelerationX}`;
+            document.querySelector("#y").innerHTML = `accY:${accelerationY}`;
             // Update the background position
             background.style.transform = `translate(${posX}%, ${posY}%)`;
         }
