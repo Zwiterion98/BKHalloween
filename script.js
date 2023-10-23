@@ -94,7 +94,7 @@ let positions = [
     location.href = "https:" + window.location.href.substring( window.location.protocol.length );
     }
     function permission () {
-        if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
+        if ( typeof(  window.DeviceMotionEvent ) !== "undefined" && typeof( window.DeviceMotionEvent.requestPermission ) === "function" ) {
             // (optional) Do something before API request prompt.
             DeviceMotionEvent.requestPermission()
                 .then( response => {
