@@ -64,7 +64,9 @@ let positions = [
 
       // Calculate the angle to rotate the pointer in degrees
       const angle = Math.atan2(distanceY, distanceX) * (180 / Math.PI);
-      document.querySelector("#z").innerHTML = `dX:${distanceX} dY:${distanceY} ang:${angle}`;
+      document.querySelector("#z").innerHTML = `dX:${distanceX} dY:${distanceY} ang:${angle}
+                                               tX:${targetPosition.x}
+                                               tY:${targetPosition.y} `;
       // Check if #info is near the target
       if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
         // Change the border color to green
