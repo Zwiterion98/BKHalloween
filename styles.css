@@ -1,14 +1,14 @@
 body {
     margin: 0;
     overflow: hidden;
-	height: 100vh;
-    width: 100vw;
+	height: fit-content;
+    width: fit-content;
 }
 
 #background {
     position: absolute;
-    height: 300vh;
-    width: 600vw;
+    height: 300%;
+    width: 826%;
     background: url('./img/ouija-01.png') center center no-repeat;
     background-size: cover;
     transform-origin: center center;
