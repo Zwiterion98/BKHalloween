@@ -57,28 +57,33 @@ let positions = [
     if (targetPosition) {
       // Define the threshold for proximity
       const proximityThreshold = 1; // Adjust this value as needed
-  
+      const proximityThreshold2 = 5;
       // Calculate the distance between #info and the target position
       const distanceX = Math.abs(targetPosition.x - posX);
     const distanceY = Math.abs(targetPosition.y - posY);
 
       // Calculate the angle to rotate the pointer in degrees
       const angle = Math.atan2(-1*(targetPosition.y - posY), -1*(targetPosition.x - posX)) * (180 / Math.PI);
-      document.querySelector("#z").innerHTML = `dX:${distanceX} dY:${distanceY} ang:${angle}
+      /*document.querySelector("#z").innerHTML = `dX:${distanceX} dY:${distanceY} ang:${angle}
                                                tX:${targetPosition.x}
                                                tY:${targetPosition.y} `;
-      // Check if #info is near the target
+      */
+     // Check if #info is near the target
       
       // Rotate the pointer towards the target position
       infoElement.style.transform = `rotate(${angle}deg)`;
 
       if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
         // Change the border color to green
-        infoElement.style.borderColor = "#00FF00";
+        infoElement.style.backgroundImage = 'url("./img/tag3.png")';
         ind++;
-      } else {
+      } 
+      else if(Math.abs(distanceX) <= proximityThreshold2 && Math.abs(distanceY) <= proximityThreshold2){
+        infoElement.style.backgroundImage = 'url("./img/tag2.png")';
+      }
+      else {
         // Change the border color back to normal
-        infoElement.style.borderColor = "#FF0000";
+        infoElement.style.backgroundImage = 'url("./img/tag1.png")';
         
       }
   
@@ -106,8 +111,8 @@ if (window.DeviceMotionEvent) {
             // Limit the position to stay within the bounds of the screen
             posX = Math.min(Math.max(posX, -87), 0);
             posY = Math.min(Math.max(posY, -66), 0);
-            document.querySelector("#x").innerHTML = `posX: ${posX} accX:${accelerationX}`;
-            document.querySelector("#y").innerHTML = `posY: ${posY} accY:${accelerationY}`;
+           //document.querySelector("#x").innerHTML = `posX: ${posX} accX:${accelerationX}`;
+           //document.querySelector("#y").innerHTML = `posY: ${posY} accY:${accelerationY}`;
             // Update the background position\
             
             background.style.transform = `translate(${posX}%, ${posY}%)`;

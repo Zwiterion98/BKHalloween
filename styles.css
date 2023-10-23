@@ -14,13 +14,13 @@ body {
 }
 
 #info{
-    
+    background: url('./img/tag1.png') center center no-repeat;
+    background-size: cover;
     position: fixed;
     top: 40vh;
     left: 30vw;
     z-index: 1;
     height: 200px;
     width: 200px;
-    border: 3px #FF0000 solid;
-    border-radius: 50%;
+    
 }
