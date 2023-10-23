@@ -63,7 +63,7 @@ let positions = [
     const distanceY = Math.abs(targetPosition.y - posY);
 
       // Calculate the angle to rotate the pointer in degrees
-      const angle = Math.atan2(distanceY, distanceX) * (360 / Math.PI);
+      const angle = Math.atan2(distanceY, distanceX) * (90 / Math.PI);
       document.querySelector("#z").innerHTML = `dX:${distanceX} dY:${distanceY} ang:${angle}
                                                tX:${targetPosition.x}
                                                tY:${targetPosition.y} `;
