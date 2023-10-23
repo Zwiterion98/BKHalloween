@@ -13,9 +13,9 @@ if (window.DeviceMotionEvent) {
         window.addEventListener('devicemotion', handleMotion);
 
         function handleMotion(event) {
-            const accelerationX = event.acceleration.x;
-            const accelerationY = event.acceleration.y;
-
+            const accelerationX = event.accelerationIncludingGravity.x;
+            const accelerationY = event.accelerationIncludingGravity.y;
+            const accelerationZ = event.accelerationIncludingGravity.z;
             // Calculate the new position based on device motion
             posX += accelerationX / 10; // Adjust the factor as needed
             posY += accelerationY / 10; // Adjust the factor as needed
@@ -25,8 +25,9 @@ if (window.DeviceMotionEvent) {
             posY = Math.min(Math.max(posY, 0), 100);
             document.querySelector("#x").innerHTML = `accX:${accelerationX}`;
             document.querySelector("#y").innerHTML = `accY:${accelerationY}`;
+            document.querySelector("#z").innerHTML = `accZ:${accelerationZ}`;
             // Update the background position
-            background.style.transform = `translate(${posX}%, ${posY}%)`;
+            //background.style.transform = `translate(${posX}%, ${posY}%)`;
         }
     } else {
         alert("Motion-based background movement is disabled.");
