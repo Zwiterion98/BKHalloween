@@ -76,7 +76,7 @@ let positions = [
         ind++;
       } 
       else if(Math.abs(distanceX) <= proximityThreshold2 && Math.abs(distanceY) <= proximityThreshold2){
-        infoElement.style.backgroundImage = 'url("./img/tag3.png")';
+        infoElement.style.backgroundImage = 'url("./img/tag2.png")';
       }
       else {
         // Change the border color back to normal
