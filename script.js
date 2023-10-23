@@ -33,7 +33,7 @@ let positions = [
     { value: "w", x: -61, y: -32 },
     { value: "x", x: -69, y: -38 },
     { value: "y", x: -76, y: -44 },
-    { value: "z", x: -80, y: 51 },
+    { value: "z", x: -80, y: -51 },
     { value: "0", x: -66, y: -56 },
     { value: "1", x: -17, y: 0 },
     { value: "2", x: -22, y: 0 },
