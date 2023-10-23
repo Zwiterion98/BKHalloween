@@ -16,7 +16,7 @@ body {
 #info{
     
     position: fixed;
-    top: 50vh;
+    top: 40vh;
     left: 30vw;
     z-index: 1;
     height: 200px;
