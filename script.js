@@ -103,7 +103,7 @@ let positions = [
 }
 
 // Check for device motion support
-if (window.DeviceMotionEvent) {
+if ('granted'==window.DeviceMotionEvent.requestPermission()) {
     DeviceOrientationEvent.requestPermission()
     .then(response => {
         if (response == 'granted') {
