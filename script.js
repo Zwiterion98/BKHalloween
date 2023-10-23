@@ -26,8 +26,9 @@ if (window.DeviceMotionEvent) {
             document.querySelector("#x").innerHTML = `accX:${accelerationX}`;
             document.querySelector("#y").innerHTML = `accY:${accelerationY}`;
             document.querySelector("#z").innerHTML = `accZ:${accelerationZ}`;
-            // Update the background position
-            background.style.transform = `translate(${posX}%, ${posY}%)`;
+            // Update the background position\
+            
+            //background.style.transform = `translate(${posX}%, ${posY}%)`;
         }
     } else {
         alert("Motion-based background movement is disabled.");
