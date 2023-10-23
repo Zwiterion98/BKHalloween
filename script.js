@@ -21,8 +21,8 @@ if (window.DeviceMotionEvent) {
             posY += accelerationY / 10; // Adjust the factor as needed
 
             // Limit the position to stay within the bounds of the screen
-            posX = Math.min(Math.max(posX, 0), 100);
-            posY = Math.min(Math.max(posY, 0), 100);
+            posX = Math.min(Math.max(posX, -1), 100);
+            posY = Math.min(Math.max(posY, -1), 100);
             document.querySelector("#x").innerHTML = `accX:${accelerationX}`;
             document.querySelector("#y").innerHTML = `accY:${accelerationY}`;
             document.querySelector("#z").innerHTML = `accZ:${accelerationZ}`;
