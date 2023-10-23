@@ -71,7 +71,7 @@ let positions = [
       
       // Rotate the pointer towards the target position
       infoElement.style.transform = `rotate(${angle}deg)`;
-      
+
       if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
         // Change the border color to green
         infoElement.style.borderColor = "#00FF00";
@@ -114,7 +114,7 @@ if (window.DeviceMotionEvent) {
             let ind = 0;
             let letter = positions[ind].value;
             if(ind < positions.length){
-                searchFor(letter);
+                ind += searchFor(letter);
             }
             
         }
