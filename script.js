@@ -56,11 +56,11 @@ let positions = [
   
     if (targetPosition) {
       // Define the threshold for proximity
-      const proximityThreshold = 1; // Adjust this value as needed
+      const proximityThreshold = 10; // Adjust this value as needed
   
       // Calculate the distance between #info and the target position
-      const distanceX = targetPosition.x - infoElement.offsetLeft;
-      const distanceY = targetPosition.y - infoElement.offsetTop;
+      const distanceX = targetPosition.x - posX;
+      const distanceY = targetPosition.y - posY;
   
       // Calculate the angle to rotate the pointer
       const angle = Math.atan2(distanceY, distanceX);
