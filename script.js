@@ -105,7 +105,7 @@ if (window.DeviceMotionEvent) {
             // Update the background position\
             
             background.style.transform = `translate(${posX}%, ${posY}%)`;
-            searchFor("a");
+            searchFor("z");
         }
     } else {
         alert("Motion-based background movement is disabled.");
