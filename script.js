@@ -21,10 +21,10 @@ if (window.DeviceMotionEvent) {
             posY += accelerationY / 10; // Adjust the factor as needed
 
             // Limit the position to stay within the bounds of the screen
-            posX = Math.min(Math.max(posX, -50), 300);
-            posY = Math.min(Math.max(posY, -50), 300);
-            document.querySelector("#x").innerHTML = `accX:${accelerationX}`;
-            document.querySelector("#y").innerHTML = `accY:${accelerationY}`;
+            posX = Math.min(Math.max(posX, -300), 300);
+            posY = Math.min(Math.max(posY, -300), 300);
+            document.querySelector("#x").innerHTML = `posX: ${posX} accX:${accelerationX}`;
+            document.querySelector("#y").innerHTML = `posY: ${posY} accY:${accelerationY}`;
             document.querySelector("#z").innerHTML = `accZ:${accelerationZ}`;
             // Update the background position\
             

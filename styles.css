@@ -13,4 +13,11 @@ body {
     background-size: cover;
     transform-origin: center center;
     transform: translate(0, 0);
+    transform: rotate(90deg);
+}
+
+#info{
+    position: fixed;
+    top:0px;
+    left: 0px;
 }
