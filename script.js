@@ -23,7 +23,8 @@ if (window.DeviceMotionEvent) {
             // Limit the position to stay within the bounds of the screen
             posX = Math.min(Math.max(posX, 0), 100);
             posY = Math.min(Math.max(posY, 0), 100);
-
+            document.querySelector("#x").innerHTML = `accX:${posX}`;
+            document.querySelector("#y").innerHTML = `accY:${posY}`;
             // Update the background position
             background.style.transform = `translate(${posX}%, ${posY}%)`;
         }
