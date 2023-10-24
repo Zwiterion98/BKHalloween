@@ -77,19 +77,17 @@ function gameManager(_gameStep){
     case 3:
       permission.classList.add('hide');
       tilt.classList.remove('hide');
-      if(horizontal){
-        passScreen();
-      }
     break;  
     case 4:
       tilt.classList.add('hide');
       instructions.classList.remove('hide');
     break; 
     case 5:
-
+      setTimeout(passScreen, 5000);
     break;  
     case 6:
-
+      instructions.classList.add('hide');
+      game.classList.remove('hide');
     break;  
     case 7:
 
@@ -251,10 +249,10 @@ function setGyro(){
               // Update the background position\
               document.querySelector("#zAcc").innerHTML = `${zAcc}`;
               if(zAcc > 9){
-                horizontal = true;
+                passScreen();
               }
               else{
-                horizontal = false;
+                
               }
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
