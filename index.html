@@ -22,6 +22,17 @@ var vx = 0.0; // Velocity x and y
 var vy = 0.0;
 var updateRate = 1/60; // Sensor refresh rate
 
+if (/Android/i.test(navigator.userAgent)) {
+    // Code to handle Android devices
+    document.body.style.backgroundColor = "green"; // Change background color to green
+} else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    // Code to handle iOS devices
+    document.body.style.backgroundColor = "blue"; // Change background color to blue
+} else {
+    // Code for other devices or unknown
+    document.body.style.backgroundColor = "gray"; // Change background color to gray
+}
+
 function getAccel(){
     DeviceMotionEvent.requestPermission().then(response => {
         if (response == 'granted') {
