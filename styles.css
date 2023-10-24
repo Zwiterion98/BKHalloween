@@ -67,6 +67,11 @@ body {
     width: 100vw;
     background: url('./img/tilt.png') center center no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10em;
 }
 
 #instructions{
