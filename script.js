@@ -74,7 +74,8 @@ function gameManager(_gameStep){
       setGyro();
     break;  
     case 2:
-
+      permission.classList.add('hide');
+      tilt.classList.remove('hide');
     break;  
     case 3:
 
@@ -189,6 +190,7 @@ function setGyro(){
         if (response == 'granted') {
           permission.classList.add('hide');
           tilt.classList.remove('hide');
+          gameStep=2;
           clearInterval(interval);
           interval = null;
         // Add a listener to get smartphone orientation 
@@ -227,6 +229,7 @@ function setGyro(){
           if (confirm("Do you want to enable motion-based background movement  13?")) {
             permission.classList.add('hide');
             tilt.classList.remove('hide');
+            gameStep=2;
             clearInterval(interval);
             interval = null;
               // Add event listener for device motion
