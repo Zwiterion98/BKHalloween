@@ -183,8 +183,6 @@ function getMobileOperatingSystem() {
 }
 
 function setGyro(){
-  clearInterval(interval);
-  interval = null;
   OS = getMobileOperatingSystem();
     if(OS == "iOS"){
       DeviceMotionEvent.requestPermission().then(response => {
