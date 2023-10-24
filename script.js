@@ -190,7 +190,7 @@ function setGyro(){
   if(OS == "iOS"){
     DeviceMotionEvent.requestPermission().then(response => {
       if (response == 'granted') {
-       
+          passScreen()
            // Add event listener for device motion
            window.addEventListener('devicemotion', handleMotion);
   
@@ -234,7 +234,7 @@ function setGyro(){
       
         // Display a permission dialog
         if (confirm("Do you want to enable motion-based background movement  13?")) {
-            
+          passScreen()
         
            
            // Add event listener for device motion
