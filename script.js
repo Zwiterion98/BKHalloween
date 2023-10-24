@@ -90,25 +90,9 @@ let positions = [
   
   let askYes = false;
   let ind = 0;
-  function askPermission() {
-    if (typeof DeviceMotionEvent.requestPermission === "function") {
-      DeviceOrientationEvent.requestPermission()
-        .then(response => {
-          if (response == "granted") {
-            askYes = true;
-            window.addEventListener(
-              "deviceorientation",
-              onDeviceOrientationChangeEvent,
-              false
-            );
-            location.reload();
-          }
-        })
-        .catch(console.error);
-    }
-  }
+  
   document.querySelector('#request').addEventListener('click', ()=>{
-    askPermission();
+    infoElement.style.backgroundColor = "#FF0000";
   });
 // Check for device motion support
 if (window.DeviceMotionEvent) {
