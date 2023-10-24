@@ -88,12 +88,14 @@ let positions = [
   }
   
   
+  let askYes = false;
   let ind = 0;
   function askPermission() {
     if (typeof DeviceMotionEvent.requestPermission === "function") {
       DeviceOrientationEvent.requestPermission()
         .then(response => {
           if (response == "granted") {
+            askYes = true;
             window.addEventListener(
               "deviceorientation",
               onDeviceOrientationChangeEvent,
@@ -105,11 +107,12 @@ let positions = [
         .catch(console.error);
     }
   }
+  document.getElementById("request").addEventListener("click", askPermission);
 // Check for device motion support
-if (window.DeviceMotionEvent) {
-  askPermission();
+if (window.DeviceMotionEvent && askYes) {
+  
     // Display a permission dialog
-    if (confirm("Do you want to enable motion-based background movement  11?")) {
+    if (confirm("Do you want to enable motion-based background movement  13?")) {
         // Add event listener for device motion
         window.addEventListener('devicemotion', handleMotion);
 
