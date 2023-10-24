@@ -201,12 +201,7 @@ function setGyro(){
                 const accelerationX = event.accelerationIncludingGravity.x;
                 const accelerationY = event.accelerationIncludingGravity.y;
                 zAcc = event.accelerationIncludingGravity.z;
-                if(zAcc < 1){
-                  horizontal = true;
-                }
-                else{
-                  horizontal = false;
-                }
+                
                 // Calculate the new position based on device motion
                 posX += accelerationX / 10; // Adjust the factor as needed
                 posY += accelerationY / 10; // Adjust the factor as needed
@@ -255,6 +250,12 @@ function setGyro(){
                 posY = Math.min(Math.max(posY, -66), 0);
               // Update the background position\
               document.querySelector("#zAcc").innerHTML = `${zAcc}`;
+              if(zAcc > 9){
+                horizontal = true;
+              }
+              else{
+                horizontal = false;
+              }
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
                 let letter = positions[ind].value;
