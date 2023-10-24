@@ -90,7 +90,6 @@ let positions = [
   
   let askYes = true;
   let ind = 0;
-  /*
   function askPermission() {
     if (typeof DeviceMotionEvent.requestPermission === "function") {
       DeviceOrientationEvent.requestPermission()
@@ -109,7 +108,6 @@ let positions = [
     }
   }
   document.querySelector('#info').addEventListener('click', askPermission);
-  */
 // Check for device motion support
 if (askYes && window.DeviceMotionEvent) {
   
