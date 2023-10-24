@@ -248,12 +248,11 @@ function setGyro(){
                 posY = Math.min(Math.max(posY, -66), 0);
               // Update the background position\
               document.querySelector("#zAcc").innerHTML = `${zAcc}`;
-              if(zAcc > 9){
+              if(zAcc > 9 && horizontal){
+                horizontal = true;
                 passScreen();
               }
-              else{
-                
-              }
+              
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
                 let letter = positions[ind].value;
