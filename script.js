@@ -77,7 +77,7 @@ function gameManager(_gameStep){
     case 3:
       permission.classList.add('hide');
       tilt.classList.remove('hide');
-      document.querySelector("#zAcc").innerHTML = "hola";
+      document.querySelector("#zAcc").innerHTML = zAcc;
       if(horizontal){
         passScreen();
       }
@@ -194,9 +194,7 @@ function setGyro(){
         if (response == 'granted') {
           permission.classList.add('hide');
           tilt.classList.remove('hide');
-          gameStep=2;
-          clearInterval(interval);
-          interval = null;
+          passScreen();
         // Add a listener to get smartphone orientation 
             // in the alpha-beta-gamma axes (units in degrees)
             
@@ -239,10 +237,9 @@ function setGyro(){
           if (confirm("Do you want to enable motion-based background movement  13?")) {
             permission.classList.add('hide');
             tilt.classList.remove('hide');
-            gameStep=2;
-            clearInterval(interval);
-            interval = null;
-              // Add event listener for device motion
+            passScreen();
+          
+             // Add event listener for device motion
               window.addEventListener('devicemotion', handleMotion);
     
               function handleMotion(event) {
