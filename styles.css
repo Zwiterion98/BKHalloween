@@ -1,4 +1,18 @@
 /*13*/
+@font-face {
+    font-family: "Flame Bold";
+    src: url("https://db.onlinewebfonts.com/t/565a681be0eb6f1d92c6bc57c629ea35.eot");
+    src: url("https://db.onlinewebfonts.com/t/565a681be0eb6f1d92c6bc57c629ea35.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/565a681be0eb6f1d92c6bc57c629ea35.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/565a681be0eb6f1d92c6bc57c629ea35.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/565a681be0eb6f1d92c6bc57c629ea35.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/565a681be0eb6f1d92c6bc57c629ea35.svg#Flame Bold")format("svg");
+}
+
+*{
+    font-family: "Flame Bold";
+}
+
 .hide{
     display: none !important;
 }
@@ -14,6 +28,25 @@ body {
     width: 100vw;
     background: url('./img/splashscreen.png') center center no-repeat;
     background-size: cover;
+}
+
+#permission{
+    height: 100vh;
+    width: 100vw;
+    background: url('./img/ask.png') center center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 10%;
+}
+
+#accelPermsButton{
+    width: 70%;
+    height: 10%;
+    border: solid 2px #4E2313;
+    background-color: #F4ECDD;
+    color: #4E2313;
 }
 
 #tilt{

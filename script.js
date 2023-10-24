@@ -71,49 +71,7 @@ switch(_gameStep){
   case 1:
     clearInterval(interval);
     interval = null;
-    if(OS == "iOS"){
-      askYes = true;
-      
-    }else if(OS == "Android"){
-        if (window.DeviceMotionEvent) {
-        
-          // Display a permission dialog
-          if (confirm("Do you want to enable motion-based background movement  13?")) {
-            document.querySelector("#game").classList.remove('hide');
-            document.querySelector("#permission").classList.add('hide');
-              // Add event listener for device motion
-              window.addEventListener('devicemotion', handleMotion);
-    
-              function handleMotion(event) {
-                  const accelerationX = event.accelerationIncludingGravity.x;
-                  const accelerationY = event.accelerationIncludingGravity.y;
-                  const accelerationZ = event.accelerationIncludingGravity.z;
-                  // Calculate the new position based on device motion
-                  posX += accelerationX / 10; // Adjust the factor as needed
-                  posY += accelerationY / 10; // Adjust the factor as needed
-    
-                  // Limit the position to stay within the bounds of the screen
-                  posX = Math.min(Math.max(posX, -87), 0);
-                  posY = Math.min(Math.max(posY, -66), 0);
-                // Update the background position\
-                  
-                  background.style.transform = `translate(${posX}%, ${posY}%)`;
-                  
-                  let letter = positions[ind].value;
-                  if(ind < positions.length){
-                    searchFor(letter);
-                    letter = positions[ind].value;
-                  }
-                  
-              }
-          } else {
-              alert("Motion-based background movement is disabled.");
-          }
-      } else {
-          alert("Device motion is not supported in your browser.");
-      }
-    
-    }
+    setGyro();
   break;  
   case 2:
 
@@ -223,44 +181,83 @@ function getMobileOperatingSystem() {
 
   return "unknown";
 }
-OS = getMobileOperatingSystem();
 
-function getAccel(){
-  if(askYes){
-    DeviceMotionEvent.requestPermission().then(response => {
-      if (response == 'granted') {
-        document.querySelector("#game").classList.remove('hide');
-        document.querySelector("#permission").classList.add('hide');
-      // Add a listener to get smartphone orientation 
-          // in the alpha-beta-gamma axes (units in degrees)
-          
-            window.addEventListener('devicemotion', handleMotion);
-
-            function handleMotion(event) {
-                const accelerationX = event.accelerationIncludingGravity.x;
-                const accelerationY = event.accelerationIncludingGravity.y;
-                const accelerationZ = event.accelerationIncludingGravity.z;
-                // Calculate the new position based on device motion
-                posX += accelerationX / 10; // Adjust the factor as needed
-                posY += accelerationY / 10; // Adjust the factor as needed
+function setGyro(){
+  OS = getMobileOperatingSystem();
+    if(OS == "iOS"){
+      DeviceMotionEvent.requestPermission().then(response => {
+        if (response == 'granted') {
+          permission.classList.add('hide');
+          tilt.classList.remove('hide');
+        // Add a listener to get smartphone orientation 
+            // in the alpha-beta-gamma axes (units in degrees)
+            
+              window.addEventListener('devicemotion', handleMotion);
   
-                // Limit the position to stay within the bounds of the screen
-                posX = Math.min(Math.max(posX, -87), 0);
-                posY = Math.min(Math.max(posY, -66), 0);
-              // Update the background position\
-                
-                background.style.transform = `translate(${posX}%, ${posY}%)`;
-                
-                let letter = positions[ind].value;
-                if(ind < positions.length){
-                  searchFor(letter);
-                  letter = positions[ind].value;
-                }   
+              function handleMotion(event) {
+                  const accelerationX = event.accelerationIncludingGravity.x;
+                  const accelerationY = event.accelerationIncludingGravity.y;
+                  const accelerationZ = event.accelerationIncludingGravity.z;
+                  // Calculate the new position based on device motion
+                  posX += accelerationX / 10; // Adjust the factor as needed
+                  posY += accelerationY / 10; // Adjust the factor as needed
+    
+                  // Limit the position to stay within the bounds of the screen
+                  posX = Math.min(Math.max(posX, -87), 0);
+                  posY = Math.min(Math.max(posY, -66), 0);
+                // Update the background position\
+                  
+                  background.style.transform = `translate(${posX}%, ${posY}%)`;
+                  
+                  let letter = positions[ind].value;
+                  if(ind < positions.length){
+                    searchFor(letter);
+                    letter = positions[ind].value;
+                  }   
+              }
             }
+        });
+      
+    }else if(OS == "Android"){
+        if (window.DeviceMotionEvent) {
+        
+          // Display a permission dialog
+          if (confirm("Do you want to enable motion-based background movement  13?")) {
+            permission.classList.add('hide');
+            tilt.classList.remove('hide');
+              // Add event listener for device motion
+              window.addEventListener('devicemotion', handleMotion);
+    
+              function handleMotion(event) {
+                  const accelerationX = event.accelerationIncludingGravity.x;
+                  const accelerationY = event.accelerationIncludingGravity.y;
+                  const accelerationZ = event.accelerationIncludingGravity.z;
+                  // Calculate the new position based on device motion
+                  posX += accelerationX / 10; // Adjust the factor as needed
+                  posY += accelerationY / 10; // Adjust the factor as needed
+    
+                  // Limit the position to stay within the bounds of the screen
+                  posX = Math.min(Math.max(posX, -87), 0);
+                  posY = Math.min(Math.max(posY, -66), 0);
+                // Update the background position\
+                  
+                  background.style.transform = `translate(${posX}%, ${posY}%)`;
+                  
+                  let letter = positions[ind].value;
+                  if(ind < positions.length){
+                    searchFor(letter);
+                    letter = positions[ind].value;
+                  }
+                  
+              }
+          } else {
+              alert("Motion-based background movement is disabled.");
           }
-      });
-  }
+      } else {
+          alert("Device motion is not supported in your browser.");
+      }
+    
+    }
 }
-
 
   
