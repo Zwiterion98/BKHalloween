@@ -86,7 +86,7 @@ function gameManager(_gameStep){
     case 5:
       inGame = true;
       instructions.classList.add('hide');
-      splashscreen.classList.remove('hide');
+      game.classList.remove('hide');
     break;  
    
     default:
@@ -215,7 +215,7 @@ function setGyro(){
       
         // Display a permission dialog
         if (confirm("Do you want to enable motion-based background movement  13?")) {
-          passScreen()
+          passScreen();
         
            
            // Add event listener for device motion
