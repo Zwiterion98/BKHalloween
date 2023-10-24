@@ -88,35 +88,9 @@ function gameManager(_gameStep){
       instructions.classList.add('hide');
       game.classList.remove('hide');
     break;  
-    case 6:
-     
-    break;  
-    case 7:
-
-    break;  
-    case 8:
-
-    break;  
-    case 9:
-
-    break;  
-    case 10:
-
-    break;  
-    case 11:
-
-    break;  
-    case 12:
-
-    break;  
-    case 13:
-
-    break;  
-    case 14:
-
-    break;
+   
     default:
-
+      splashscreen.classList.remove('hide');
     break;
   }
 }
@@ -192,43 +166,48 @@ function setGyro(){
   if(OS == "iOS"){
     DeviceMotionEvent.requestPermission().then(response => {
       if (response == 'granted') {
-          passScreen()
-           // Add event listener for device motion
-           window.addEventListener('devicemotion', handleMotion);
-  
-           function handleMotion(event) {
-               const accelerationX = event.accelerationIncludingGravity.x;
-               const accelerationY = event.accelerationIncludingGravity.y;
-               zAcc = event.accelerationIncludingGravity.z;
-               
-               
-               // Calculate the new position based on device motion
-               posX += accelerationX / 10; // Adjust the factor as needed
-               posY += accelerationY / 10; // Adjust the factor as needed
- 
-               // Limit the position to stay within the bounds of the screen
-               posX = Math.min(Math.max(posX, -87), 0);
-               posY = Math.min(Math.max(posY, -66), 0);
-             // Update the background position\
-             document.querySelector("#zAcc").innerHTML = `${zAcc}`;
-             if(zAcc > 9 && !horizontal){
-               horizontal = true;
-               passScreen();
-             }
-             
-               background.style.transform = `translate(${posX}%, ${posY}%)`;
-               
-               let letter = positions[ind].value;
-               if(ind < positions.length){
-                 searchFor(letter);
-                 letter = positions[ind].value;
-               }
-               
+        passScreen()
+        
+           
+        // Add event listener for device motion
+        window.addEventListener('devicemotion', handleMotion);
+
+        function handleMotion(event) {
+            const accelerationX = event.accelerationIncludingGravity.x;
+            const accelerationY = event.accelerationIncludingGravity.y;
+            zAcc = event.accelerationIncludingGravity.z;
+            
+            
+            
+           // Update the background position\
+           document.querySelector("#zAcc").innerHTML = `${zAcc}`;
+           if(zAcc > 9 && !horizontal){
+             horizontal = true;
+             passScreen();
            }
-          }else {
-            alert("Motion-based background movement is disabled.");
-        }
-         
+           if(inGame){
+             // Calculate the new position based on device motion
+             posX += accelerationX / 10; // Adjust the factor as needed
+             posY += accelerationY / 10; // Adjust the factor as needed
+
+             // Limit the position to stay within the bounds of the screen
+             posX = Math.min(Math.max(posX, -87), 0);
+             posY = Math.min(Math.max(posY, -66), 0);
+             background.style.transform = `translate(${posX}%, ${posY}%)`;
+            
+             let letter = positions[ind].value;
+             if(ind < positions.length){
+               searchFor(letter);
+               letter = positions[ind].value;
+             }
+           }
+            
+            
+         }
+       }else {
+        alert("Motion-based background movement is disabled.");
+      }
+  
       });
     
   }else if(OS == "Android"){
