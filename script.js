@@ -159,69 +159,69 @@ switch(_gameStep){
   break;
 }
 }
+gameManager(gameStep);
+function searchFor(_letter) {
+  // Get the #info element
+  const infoElement = document.querySelector("#info");
 
-  function searchFor(_letter) {
-    // Get the #info element
-    const infoElement = document.querySelector("#info");
-  
-    // Get the position of the target element (specified by _letter)
-    const targetPosition = positions.find((element) => element.value === _letter);
-  
-    if (targetPosition) {
-      // Define the threshold for proximity
-      const proximityThreshold = 1; // Adjust this value as needed
-      const proximityThreshold2 = 5;
-      // Calculate the distance between #info and the target position
-      const distanceX = Math.abs(targetPosition.x - posX);
-    const distanceY = Math.abs(targetPosition.y - posY);
+  // Get the position of the target element (specified by _letter)
+  const targetPosition = positions.find((element) => element.value === _letter);
 
-      // Calculate the angle to rotate the pointer in degrees
-      const angle = Math.atan2(-1*(targetPosition.y - posY), -1*(targetPosition.x - posX)) * (180 / Math.PI);
-      
-     // Check if #info is near the target
-      
-      // Rotate the pointer towards the target position
-      infoElement.style.transform = `rotate(${angle}deg)`;
+  if (targetPosition) {
+    // Define the threshold for proximity
+    const proximityThreshold = 1; // Adjust this value as needed
+    const proximityThreshold2 = 5;
+    // Calculate the distance between #info and the target position
+    const distanceX = Math.abs(targetPosition.x - posX);
+  const distanceY = Math.abs(targetPosition.y - posY);
 
-      if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
-        // Change the border color to green
-        infoElement.style.backgroundImage = 'url("./img/tag2.png")';
-        ind++;
-      } 
-      else if(Math.abs(distanceX) <= proximityThreshold2 && Math.abs(distanceY) <= proximityThreshold2){
-        infoElement.style.backgroundImage = 'url("./img/tag2.png")';
-      }
-      else {
-        // Change the border color back to normal
-        infoElement.style.backgroundImage = 'url("./img/tag3.png")';
-        
-      }
-  
+    // Calculate the angle to rotate the pointer in degrees
+    const angle = Math.atan2(-1*(targetPosition.y - posY), -1*(targetPosition.x - posX)) * (180 / Math.PI);
+    
+    // Check if #info is near the target
+    
+    // Rotate the pointer towards the target position
+    infoElement.style.transform = `rotate(${angle}deg)`;
+
+    if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
+      // Change the border color to green
+      infoElement.style.backgroundImage = 'url("./img/tag2.png")';
+      ind++;
+    } 
+    else if(Math.abs(distanceX) <= proximityThreshold2 && Math.abs(distanceY) <= proximityThreshold2){
+      infoElement.style.backgroundImage = 'url("./img/tag2.png")';
     }
+    else {
+      // Change the border color back to normal
+      infoElement.style.backgroundImage = 'url("./img/tag3.png")';
+      
+    }
+
   }
+}
+
   
-  
-  let askYes = false;
-  let ind = 0;
-  let OS = "";
-  function getMobileOperatingSystem() {
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+let askYes = false;
+let ind = 0;
+let OS = "";
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    // Windows Phone must come first because its UA also contains "Android"
-    if (/windows phone/i.test(userAgent)) {
-        return "Windows Phone";
-    }
+  // Windows Phone must come first because its UA also contains "Android"
+  if (/windows phone/i.test(userAgent)) {
+      return "Windows Phone";
+  }
 
-    if (/android/i.test(userAgent)) {
-        return "Android";
-    }
+  if (/android/i.test(userAgent)) {
+      return "Android";
+  }
 
-    // iOS detection from: http://stackoverflow.com/a/9039885/177710
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        return "iOS";
-    }
+  // iOS detection from: http://stackoverflow.com/a/9039885/177710
+  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      return "iOS";
+  }
 
-    return "unknown";
+  return "unknown";
 }
 OS = getMobileOperatingSystem();
 
