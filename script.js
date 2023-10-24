@@ -77,6 +77,7 @@ function gameManager(_gameStep){
     case 3:
       permission.classList.add('hide');
       tilt.classList.remove('hide');
+      document.querySelector("#zAcc").innerHTML = zAcc;
       if(horizontal){
         passScreen();
       }
