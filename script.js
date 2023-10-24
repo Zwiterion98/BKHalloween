@@ -88,7 +88,7 @@ let positions = [
   }
   
   
-  let askYes = false;
+  let askYes = true;
   let ind = 0;
   function askPermission() {
     if (typeof DeviceMotionEvent.requestPermission === "function") {
@@ -107,9 +107,9 @@ let positions = [
         .catch(console.error);
     }
   }
-  document.querySelector("#info").addEventListener("click", askPermission());
+  document.querySelector('#info').addEventListener('click', askPermission);
 // Check for device motion support
-if (window.DeviceMotionEvent && askYes) {
+if (askYes && window.DeviceMotionEvent) {
   
     // Display a permission dialog
     if (confirm("Do you want to enable motion-based background movement  13?")) {
