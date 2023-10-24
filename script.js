@@ -92,7 +92,7 @@ let positions = [
   let ind = 0;
   
   document.querySelector('#request').addEventListener('click', ()=>{
-    infoElement.style.backgroundColor = "#FF0000";
+    body.style.backgroundColor = "#FF0000";
   });
 // Check for device motion support
 if (window.DeviceMotionEvent) {
