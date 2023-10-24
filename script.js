@@ -191,35 +191,38 @@ function setGyro(){
     DeviceMotionEvent.requestPermission().then(response => {
       if (response == 'granted') {
        
-      // Add a listener to get smartphone orientation 
-          // in the alpha-beta-gamma axes (units in degrees)
-          
-            window.addEventListener('devicemotion', handleMotion);
-
-            function handleMotion(event) {
-                const accelerationX = event.accelerationIncludingGravity.x;
-                const accelerationY = event.accelerationIncludingGravity.y;
-                zAcc = event.accelerationIncludingGravity.z;
-                
-                // Calculate the new position based on device motion
-                posX += accelerationX / 10; // Adjust the factor as needed
-                posY += accelerationY / 10; // Adjust the factor as needed
+           // Add event listener for device motion
+           window.addEventListener('devicemotion', handleMotion);
   
-                // Limit the position to stay within the bounds of the screen
-                posX = Math.min(Math.max(posX, -87), 0);
-                posY = Math.min(Math.max(posY, -66), 0);
-              // Update the background position\
-                document.querySelector("#zAcc").innerHTML = `${zAcc}`;
-                
-                background.style.transform = `translate(${posX}%, ${posY}%)`;
-                
-                let letter = positions[ind].value;
-                if(ind < positions.length){
-                  searchFor(letter);
-                  letter = positions[ind].value;
-                }   
-            }
-            passScreen();
+           function handleMotion(event) {
+               const accelerationX = event.accelerationIncludingGravity.x;
+               const accelerationY = event.accelerationIncludingGravity.y;
+               zAcc = event.accelerationIncludingGravity.z;
+               
+               
+               // Calculate the new position based on device motion
+               posX += accelerationX / 10; // Adjust the factor as needed
+               posY += accelerationY / 10; // Adjust the factor as needed
+ 
+               // Limit the position to stay within the bounds of the screen
+               posX = Math.min(Math.max(posX, -87), 0);
+               posY = Math.min(Math.max(posY, -66), 0);
+             // Update the background position\
+             document.querySelector("#zAcc").innerHTML = `${zAcc}`;
+             if(zAcc > 9 && !horizontal){
+               horizontal = true;
+               passScreen();
+             }
+             
+               background.style.transform = `translate(${posX}%, ${posY}%)`;
+               
+               let letter = positions[ind].value;
+               if(ind < positions.length){
+                 searchFor(letter);
+                 letter = positions[ind].value;
+               }
+               
+           }
           }
          
       });
