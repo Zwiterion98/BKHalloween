@@ -81,13 +81,14 @@ function gameManager(_gameStep){
     case 4:
       tilt.classList.add('hide');
       instructions.classList.remove('hide');
+      setTimeout(passScreen, 5000);
     break; 
     case 5:
-      setTimeout(passScreen, 5000);
-    break;  
-    case 6:
       instructions.classList.add('hide');
       game.classList.remove('hide');
+    break;  
+    case 6:
+     
     break;  
     case 7:
 
@@ -248,7 +249,7 @@ function setGyro(){
                 posY = Math.min(Math.max(posY, -66), 0);
               // Update the background position\
               document.querySelector("#zAcc").innerHTML = `${zAcc}`;
-              if(zAcc > 9 && horizontal){
+              if(zAcc > 9 && !horizontal){
                 horizontal = true;
                 passScreen();
               }
