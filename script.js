@@ -57,9 +57,7 @@ let positions = [
   const loser = document.querySelector("#loser");
 
 function passScreen(){
-  splashscreen.classList.add('hide');
-  permission.classList.remove('hide');
-  gameStep=1;
+  gameStep++;
   gameManager(gameStep);
 }
 
@@ -67,17 +65,18 @@ function gameManager(_gameStep){
   switch(_gameStep){
     case 0:
     splashscreen.classList.remove('hide');
-    const interval = setTimeout(passScreen, 5000);
+    setTimeout(passScreen, 5000);
     break;
     case 1:
-      setGyro();
+      splashscreen.classList.add('hide');
+      permission.classList.remove('hide');
     break;  
     case 2:
-      permission.classList.add('hide');
-      tilt.classList.remove('hide');
+      setGyro();
     break;  
     case 3:
-
+      permission.classList.add('hide');
+      tilt.classList.remove('hide');
     break;  
     case 4:
 
