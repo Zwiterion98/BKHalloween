@@ -85,7 +85,7 @@ function gameManager(_gameStep){
     break; 
     case 5:
       instructions.classList.add('hide');
-      game.classList.remove('hide');
+      winner.classList.remove('hide');
     break;  
     case 6:
      
