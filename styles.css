@@ -3,6 +3,10 @@ body {
     margin: 0;
     overflow: hidden;
 }
+#request{
+    width: 50vw;
+    height: 10vh;
+}
 
 #background {
     position: absolute;

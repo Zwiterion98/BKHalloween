@@ -88,7 +88,7 @@ let positions = [
   }
   
   
-  let askYes = true;
+  let askYes = false;
   let ind = 0;
   function askPermission() {
     if (typeof DeviceMotionEvent.requestPermission === "function") {
@@ -107,7 +107,9 @@ let positions = [
         .catch(console.error);
     }
   }
-  document.querySelector('#info').addEventListener('click', askPermission);
+  document.querySelector('#request').addEventListener('click', ()=>{
+    askPermission();
+  });
 // Check for device motion support
 if (askYes && window.DeviceMotionEvent) {
   
