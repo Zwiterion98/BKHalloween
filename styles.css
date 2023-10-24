@@ -37,7 +37,7 @@ body {
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     padding-bottom: 10em;
 }
