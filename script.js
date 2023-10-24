@@ -58,64 +58,64 @@ let positions = [
 
 
 function gameManager(_gameStep){
-switch(_gameStep){
-  case 0:
-  splashscreen.classList.remove('hide');
-  let interval = setInterval(()=>{
-    splashscreen.classList.add('hide');
-    permission.classList.remove('hide');
-    gameStep=1;
-    gameManager(gameStep);
-  },5000);
-  break;
-  case 1:
-    clearInterval(interval);
-    interval = null;
-    setGyro();
-  break;  
-  case 2:
+  switch(_gameStep){
+    case 0:
+    splashscreen.classList.remove('hide');
+    let interval = setInterval(()=>{
+      splashscreen.classList.add('hide');
+      permission.classList.remove('hide');
+      gameStep=1;
+      gameManager(gameStep);
+    },5000);
+    break;
+    case 1:
+      clearInterval(interval);
+      interval = null;
+      setGyro();
+    break;  
+    case 2:
 
-  break;  
-  case 3:
+    break;  
+    case 3:
 
-  break;  
-  case 4:
+    break;  
+    case 4:
 
-  break; 
-  case 5:
+    break; 
+    case 5:
 
-  break;  
-  case 6:
+    break;  
+    case 6:
 
-  break;  
-  case 7:
+    break;  
+    case 7:
 
-  break;  
-  case 8:
+    break;  
+    case 8:
 
-  break;  
-  case 9:
+    break;  
+    case 9:
 
-  break;  
-  case 10:
+    break;  
+    case 10:
 
-  break;  
-  case 11:
+    break;  
+    case 11:
 
-  break;  
-  case 12:
+    break;  
+    case 12:
 
-  break;  
-  case 13:
+    break;  
+    case 13:
 
-  break;  
-  case 14:
+    break;  
+    case 14:
 
-  break;
-  default:
+    break;
+    default:
 
-  break;
-}
+    break;
+  }
 }
 gameManager(gameStep);
 function searchFor(_letter) {
@@ -183,6 +183,8 @@ function getMobileOperatingSystem() {
 }
 
 function setGyro(){
+  clearInterval(interval);
+  interval = null;
   OS = getMobileOperatingSystem();
     if(OS == "iOS"){
       DeviceMotionEvent.requestPermission().then(response => {

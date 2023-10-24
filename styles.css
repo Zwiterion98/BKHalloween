@@ -37,17 +37,18 @@ body {
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: end;
+    justify-content: end;
+    align-items: center;
     padding-bottom: 3em;
 }
 
 #accelPermsButton{
     width: 70%;
     height: 10%;
+    font-size: 2em;
     border: solid 2px #4E2313;
     background-color: #F4ECDD;
-    border-radius: 50px;
+    border-radius: 10px;
     color: #4E2313;
 }
 
