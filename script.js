@@ -46,7 +46,76 @@ let positions = [
     { value: "9", x: -61, y: -54 },
     { value: "adios", x: -44, y: -66 },
   ];
-  
+  let gameStep = 0;
+  const splashscreen = document.querySelector("#splashscreen");
+  const permission = document.querySelector("#permission");
+  const tilt = document.querySelector("#tilt");
+  const instructions = document.querySelector("#instructions");
+  const cuestions = document.querySelector("#cuestions");
+  const game = document.querySelector("#cuestions");
+  const winner = document.querySelector("#winner");
+  const loser = document.querySelector("#loser");
+
+
+function gameManager(_gameStep){
+switch(_gameStep){
+  case 0:
+  splashscreen.classList.remove('hide');
+  let interval = setInterval(()=>{
+    splashscreen.classList.add('hide');
+    permission.classList.remove('hide');
+    gameStep++;
+    clearInterval(interval);
+  },5000);
+  break;
+  case 1:
+
+  break;  
+  case 2:
+
+  break;  
+  case 3:
+
+  break;  
+  case 4:
+
+  break; 
+  case 5:
+
+  break;  
+  case 6:
+
+  break;  
+  case 7:
+
+  break;  
+  case 8:
+
+  break;  
+  case 9:
+
+  break;  
+  case 10:
+
+  break;  
+  case 11:
+
+  break;  
+  case 12:
+
+  break;  
+  case 13:
+
+  break;  
+  case 14:
+
+  break;
+  default:
+
+  break;
+}
+}
+
   function searchFor(_letter) {
     // Get the #info element
     const infoElement = document.querySelector("#info");
@@ -111,11 +180,6 @@ let positions = [
     return "unknown";
 }
 OS = getMobileOperatingSystem();
-var px = 50; // Position x and y
-var py = 50;
-var vx = 0.0; // Velocity x and y
-var vy = 0.0;
-var updateRate = 1/60; // Sensor refresh rate
 
 function getAccel(){
   if(askYes){
@@ -153,6 +217,7 @@ function getAccel(){
       });
   }
 }
+
 if(OS == "iOS"){
   askYes = true;
   
@@ -197,4 +262,7 @@ if(OS == "iOS"){
 
 }
   
-// Check for device motion support
+
+while(1){
+  gameManager(gameStep);
+  }

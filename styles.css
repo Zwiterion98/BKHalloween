@@ -9,6 +9,43 @@ body {
     height: 100vh;
     width: 100vw;
 }
+#splashscreen{
+    height: 100vh;
+    width: 100vw;
+    background: url('./img/splashscreen.png') center center no-repeat;
+    background-size: cover;
+}
+
+#tilt{
+    height: 100vh;
+    width: 100vw;
+    background: url('./img/tilt.png') center center no-repeat;
+    background-size: cover;
+}
+
+#instructions{
+    height: 100vh;
+    width: 100vw;
+    background: url('./img/instructions.png') center center no-repeat;
+    background-size: cover;
+}
+
+#cuestions{
+    height: 100vh;
+    width: 100vw;
+}
+
+#winner{
+    height: 100vh;
+    width: 100vw;
+    background: url('./img/winner.png') center center no-repeat;
+    background-size: cover;
+}
+
+#loser{
+    height: 100vh;
+    width: 100vw;
+}
 
 #permission{
     height: 100vh;
