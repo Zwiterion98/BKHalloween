@@ -243,7 +243,7 @@ function setGyro(){
             function handleMotion(event) {
                 const accelerationX = event.accelerationIncludingGravity.x;
                 const accelerationY = event.accelerationIncludingGravity.y;
-                zAcc = accelerationY;
+                zAcc = event.accelerationIncludingGravity.z;
                 
                 
                 // Calculate the new position based on device motion
