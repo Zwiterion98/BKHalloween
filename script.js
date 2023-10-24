@@ -81,7 +81,7 @@ function gameManager(_gameStep){
     case 4:
       tilt.classList.add('hide');
       instructions.classList.remove('hide');
-      setTimeout(passScreen, 5000);
+      setTimeout(passScreen, 10000);
     break; 
     case 5:
       instructions.classList.add('hide');
@@ -183,7 +183,7 @@ function getMobileOperatingSystem() {
 
   return "unknown";
 }
-let zAcc = 10;
+let zAcc = 0;
 let horizontal = false;
 function setGyro(){
   OS = getMobileOperatingSystem();
@@ -263,7 +263,6 @@ function setGyro(){
                 }
                 
             }
-            passScreen();
         } else {
             alert("Motion-based background movement is disabled.");
         }
