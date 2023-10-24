@@ -111,7 +111,7 @@ let positions = [
     askPermission();
   });
 // Check for device motion support
-if (askYes && window.DeviceMotionEvent) {
+if (window.DeviceMotionEvent) {
   
     // Display a permission dialog
     if (confirm("Do you want to enable motion-based background movement  13?")) {
