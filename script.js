@@ -121,43 +121,37 @@ function getAccel(){
   if(askYes){
     DeviceMotionEvent.requestPermission().then(response => {
       if (response == 'granted') {
+        document.querySelector("#game").classList.remove('hide');
+        document.querySelector("#permission").classList.add('hide');
       // Add a listener to get smartphone orientation 
           // in the alpha-beta-gamma axes (units in degrees)
-          window.addEventListener('deviceorientation',(event) => {
-              // Expose each orientation angle in a more readable way
-              rotation_degrees = event.alpha;
-              frontToBack_degrees = event.beta;
-              leftToRight_degrees = event.gamma;
-              
-              // Update velocity according to how tilted the phone is
-              // Since phones are narrower than they are long, double the increase to the x velocity
-              vx = vx + leftToRight_degrees * updateRate*2; 
-              vy = vy + frontToBack_degrees * updateRate;
-              
-              // Update position and clip it to bounds
-              px = px + vx*.5;
-              if (px > 98 || px < 0){ 
-                  px = Math.max(0, Math.min(98, px)) // Clip px between 0-98
-                  vx = 0;
-              }
+          
+            window.addEventListener('devicemotion', handleMotion);
 
-              py = py + vy*.5;
-              if (py > 98 || py < 0){
-                  py = Math.max(0, Math.min(98, py)) // Clip py between 0-98
-                  vy = 0;
-              }
-              /*
-              dot = document.getElementsByClassName("indicatorDot")[0]
-              dot.setAttribute('style', "left:" + (px) + "%;" +
-                                            "top:" + (py) + "%;");
-              */
-              background.style.transform = `translate(${px}%, ${py}%)`;
-              
-          });
-      }
-  });
+            function handleMotion(event) {
+                const accelerationX = event.accelerationIncludingGravity.x;
+                const accelerationY = event.accelerationIncludingGravity.y;
+                const accelerationZ = event.accelerationIncludingGravity.z;
+                // Calculate the new position based on device motion
+                posX += accelerationX / 10; // Adjust the factor as needed
+                posY += accelerationY / 10; // Adjust the factor as needed
+  
+                // Limit the position to stay within the bounds of the screen
+                posX = Math.min(Math.max(posX, -87), 0);
+                posY = Math.min(Math.max(posY, -66), 0);
+              // Update the background position\
+                
+                background.style.transform = `translate(${posX}%, ${posY}%)`;
+                
+                let letter = positions[ind].value;
+                if(ind < positions.length){
+                  searchFor(letter);
+                  letter = positions[ind].value;
+                }   
+            }
+          }
+      });
   }
- 
 }
 if(OS == "iOS"){
   askYes = true;
@@ -167,6 +161,8 @@ if(OS == "iOS"){
     
       // Display a permission dialog
       if (confirm("Do you want to enable motion-based background movement  13?")) {
+        document.querySelector("#game").classList.remove('hide');
+        document.querySelector("#permission").classList.add('hide');
           // Add event listener for device motion
           window.addEventListener('devicemotion', handleMotion);
 
@@ -200,7 +196,5 @@ if(OS == "iOS"){
   }
 
 }
-  document.querySelector('#request').addEventListener('click', ()=>{
-    
-  });
+  
 // Check for device motion support
