@@ -86,7 +86,7 @@ function gameManager(_gameStep){
     case 5:
       inGame = true;
       instructions.classList.add('hide');
-      game.classList.remove('hide');
+      splashscreen.classList.remove('hide');
     break;  
    
     default:
