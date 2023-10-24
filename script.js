@@ -61,10 +61,10 @@ function gameManager(_gameStep){
 switch(_gameStep){
   case 0:
   splashscreen.classList.remove('hide');
-  const interval = setInterval(()=>{
+  let interval = setInterval(()=>{
     splashscreen.classList.add('hide');
     permission.classList.remove('hide');
-    gameStep++;
+    gameStep=1;
     gameManager(gameStep);
   },5000);
   break;
