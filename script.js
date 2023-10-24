@@ -56,21 +56,20 @@ let positions = [
   const winner = document.querySelector("#winner");
   const loser = document.querySelector("#loser");
 
+function passScreen(){
+  splashscreen.classList.add('hide');
+  permission.classList.remove('hide');
+  gameStep=1;
+  gameManager(gameStep);
+}
 
 function gameManager(_gameStep){
   switch(_gameStep){
     case 0:
     splashscreen.classList.remove('hide');
-    let interval = setInterval(()=>{
-      splashscreen.classList.add('hide');
-      permission.classList.remove('hide');
-      gameStep=1;
-      gameManager(gameStep);
-    },5000);
+    const interval = setTimeout(passScreen, 5000);
     break;
     case 1:
-      clearInterval(interval);
-      interval = null;
       setGyro();
     break;  
     case 2:
