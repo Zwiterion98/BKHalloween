@@ -192,8 +192,6 @@ function setGyro(){
     if(OS == "iOS"){
       DeviceMotionEvent.requestPermission().then(response => {
         if (response == 'granted') {
-          permission.classList.add('hide');
-          tilt.classList.remove('hide');
           passScreen();
         // Add a listener to get smartphone orientation 
             // in the alpha-beta-gamma axes (units in degrees)
@@ -235,9 +233,7 @@ function setGyro(){
         
           // Display a permission dialog
           if (confirm("Do you want to enable motion-based background movement  13?")) {
-            permission.classList.add('hide');
-            tilt.classList.remove('hide');
-            passScreen();
+             passScreen();
           
              // Add event listener for device motion
               window.addEventListener('devicemotion', handleMotion);
