@@ -107,7 +107,7 @@ let positions = [
         .catch(console.error);
     }
   }
-  document.getElementById("info").addEventListener("click", askPermission);
+  document.querySelector("#info").addEventListener("click", askPermission());
 // Check for device motion support
 if (window.DeviceMotionEvent && askYes) {
   
