@@ -254,7 +254,7 @@ function setGyro(){
                 posX = Math.min(Math.max(posX, -87), 0);
                 posY = Math.min(Math.max(posY, -66), 0);
               // Update the background position\
-              document.querySelector("#zAcc").innerHTML = `${posX} ${posY}`;
+              document.querySelector("#zAcc").innerHTML = `${zAcc}`;
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
                 let letter = positions[ind].value;
