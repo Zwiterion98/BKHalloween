@@ -84,8 +84,9 @@ function gameManager(_gameStep){
       setTimeout(passScreen, 10000);
     break; 
     case 5:
+      inGame = true;
       instructions.classList.add('hide');
-      winner.classList.remove('hide');
+      game.classList.remove('hide');
     break;  
     case 6:
      
@@ -185,6 +186,7 @@ function getMobileOperatingSystem() {
 }
 let zAcc = 0;
 let horizontal = false;
+let inGame = false;
 function setGyro(){
   OS = getMobileOperatingSystem();
   if(OS == "iOS"){
@@ -246,27 +248,30 @@ function setGyro(){
                zAcc = event.accelerationIncludingGravity.z;
                
                
-               // Calculate the new position based on device motion
-               posX += accelerationX / 10; // Adjust the factor as needed
-               posY += accelerationY / 10; // Adjust the factor as needed
- 
-               // Limit the position to stay within the bounds of the screen
-               posX = Math.min(Math.max(posX, -87), 0);
-               posY = Math.min(Math.max(posY, -66), 0);
+               
               // Update the background position\
               document.querySelector("#zAcc").innerHTML = `${zAcc}`;
               if(zAcc > 9 && !horizontal){
                 horizontal = true;
                 passScreen();
               }
-             
-               background.style.transform = `translate(${posX}%, ${posY}%)`;
+              if(inGame){
+                // Calculate the new position based on device motion
+                posX += accelerationX / 10; // Adjust the factor as needed
+                posY += accelerationY / 10; // Adjust the factor as needed
+  
+                // Limit the position to stay within the bounds of the screen
+                posX = Math.min(Math.max(posX, -87), 0);
+                posY = Math.min(Math.max(posY, -66), 0);
+                background.style.transform = `translate(${posX}%, ${posY}%)`;
                
-               let letter = positions[ind].value;
-               if(ind < positions.length){
-                 searchFor(letter);
-                 letter = positions[ind].value;
-               }
+                let letter = positions[ind].value;
+                if(ind < positions.length){
+                  searchFor(letter);
+                  letter = positions[ind].value;
+                }
+              }
+               
                
             }
           }
