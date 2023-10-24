@@ -61,15 +61,16 @@ function gameManager(_gameStep){
 switch(_gameStep){
   case 0:
   splashscreen.classList.remove('hide');
-  let interval = setInterval(()=>{
+  const interval = setInterval(()=>{
     splashscreen.classList.add('hide');
     permission.classList.remove('hide');
     gameStep++;
-    clearInterval(interval);
     gameManager(gameStep);
   },5000);
   break;
   case 1:
+    clearInterval(interval);
+    interval = null;
     if(OS == "iOS"){
       askYes = true;
       
