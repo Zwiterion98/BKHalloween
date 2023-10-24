@@ -77,9 +77,13 @@ function gameManager(_gameStep){
     case 3:
       permission.classList.add('hide');
       tilt.classList.remove('hide');
+      if(horizontal){
+        passScreen();
+      }
     break;  
     case 4:
-
+      tilt.classList.add('hide');
+      instructions.classList.remove('hide');
     break; 
     case 5:
 
@@ -180,7 +184,8 @@ function getMobileOperatingSystem() {
 
   return "unknown";
 }
-
+let zAcc = 10;
+let horizontal = false;
 function setGyro(){
   OS = getMobileOperatingSystem();
     if(OS == "iOS"){
@@ -199,7 +204,13 @@ function setGyro(){
               function handleMotion(event) {
                   const accelerationX = event.accelerationIncludingGravity.x;
                   const accelerationY = event.accelerationIncludingGravity.y;
-                  const accelerationZ = event.accelerationIncludingGravity.z;
+                  zAcc = event.accelerationIncludingGravity.z;
+                  if(zAcc < 1){
+                    horizontal = true;
+                  }
+                  else{
+                    horizontal = false;
+                  }
                   // Calculate the new position based on device motion
                   posX += accelerationX / 10; // Adjust the factor as needed
                   posY += accelerationY / 10; // Adjust the factor as needed
@@ -236,7 +247,7 @@ function setGyro(){
               function handleMotion(event) {
                   const accelerationX = event.accelerationIncludingGravity.x;
                   const accelerationY = event.accelerationIncludingGravity.y;
-                  const accelerationZ = event.accelerationIncludingGravity.z;
+                  zAcc = event.accelerationIncludingGravity.z;
                   // Calculate the new position based on device motion
                   posX += accelerationX / 10; // Adjust the factor as needed
                   posY += accelerationY / 10; // Adjust the factor as needed
