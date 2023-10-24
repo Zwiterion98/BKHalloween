@@ -109,7 +109,7 @@ let positions = [
 if (window.DeviceMotionEvent) {
   askPermission();
     // Display a permission dialog
-    if (confirm("Do you want to enable motion-based background movement  11?")) {
+    if (confirm("Do you want to enable motion-based background movement  13?")) {
         // Add event listener for device motion
         window.addEventListener('devicemotion', handleMotion);
 
