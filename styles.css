@@ -2,6 +2,8 @@
 body {
     margin: 0;
     overflow: hidden;
+    height: 300%;
+    width: 800%;
 }
 #request{
     width: 50vw;
@@ -10,8 +12,8 @@ body {
 
 #background {
     position: absolute;
-    height: 300%;
-    width: 800%;
+    height: 100%;
+    width: 100%;
     background: url('./img/ouija-01.png') center center no-repeat;
     background-size: cover;
     transform-origin: center center;
