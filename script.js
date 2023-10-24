@@ -77,7 +77,6 @@ function gameManager(_gameStep){
     case 3:
       permission.classList.add('hide');
       tilt.classList.remove('hide');
-      document.querySelector("#zAcc").innerHTML = `${posX} ${posY}`;
       if(horizontal){
         passScreen();
       }
@@ -192,7 +191,7 @@ function setGyro(){
   if(OS == "iOS"){
     DeviceMotionEvent.requestPermission().then(response => {
       if (response == 'granted') {
-        passScreen();
+       
       // Add a listener to get smartphone orientation 
           // in the alpha-beta-gamma axes (units in degrees)
           
@@ -216,6 +215,7 @@ function setGyro(){
                 posX = Math.min(Math.max(posX, -87), 0);
                 posY = Math.min(Math.max(posY, -66), 0);
               // Update the background position\
+                document.querySelector("#zAcc").innerHTML = `${posX} ${posY}`;
                 
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
@@ -225,7 +225,9 @@ function setGyro(){
                   letter = positions[ind].value;
                 }   
             }
+            passScreen();
           }
+         
       });
     
   }else if(OS == "Android"){
@@ -242,6 +244,8 @@ function setGyro(){
                 const accelerationX = event.accelerationIncludingGravity.x;
                 const accelerationY = event.accelerationIncludingGravity.y;
                 zAcc = accelerationY;
+                
+                
                 // Calculate the new position based on device motion
                 posX += accelerationX / 10; // Adjust the factor as needed
                 posY += accelerationY / 10; // Adjust the factor as needed
@@ -250,7 +254,7 @@ function setGyro(){
                 posX = Math.min(Math.max(posX, -87), 0);
                 posY = Math.min(Math.max(posY, -66), 0);
               // Update the background position\
-                
+              document.querySelector("#zAcc").innerHTML = `${posX} ${posY}`;
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
                 let letter = positions[ind].value;
