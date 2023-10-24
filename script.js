@@ -189,85 +189,86 @@ let zAcc = 10;
 let horizontal = false;
 function setGyro(){
   OS = getMobileOperatingSystem();
-    if(OS == "iOS"){
-      DeviceMotionEvent.requestPermission().then(response => {
-        if (response == 'granted') {
-          passScreen();
-        // Add a listener to get smartphone orientation 
-            // in the alpha-beta-gamma axes (units in degrees)
-            
-              window.addEventListener('devicemotion', handleMotion);
-  
-              function handleMotion(event) {
-                  const accelerationX = event.accelerationIncludingGravity.x;
-                  const accelerationY = event.accelerationIncludingGravity.y;
-                  zAcc = event.accelerationIncludingGravity.z;
-                  if(zAcc < 1){
-                    horizontal = true;
-                  }
-                  else{
-                    horizontal = false;
-                  }
-                  // Calculate the new position based on device motion
-                  posX += accelerationX / 10; // Adjust the factor as needed
-                  posY += accelerationY / 10; // Adjust the factor as needed
-    
-                  // Limit the position to stay within the bounds of the screen
-                  posX = Math.min(Math.max(posX, -87), 0);
-                  posY = Math.min(Math.max(posY, -66), 0);
-                // Update the background position\
-                  
-                  background.style.transform = `translate(${posX}%, ${posY}%)`;
-                  
-                  let letter = positions[ind].value;
-                  if(ind < positions.length){
-                    searchFor(letter);
-                    letter = positions[ind].value;
-                  }   
-              }
-            }
-        });
-      
-    }else if(OS == "Android"){
-        if (window.DeviceMotionEvent) {
-        
-          // Display a permission dialog
-          if (confirm("Do you want to enable motion-based background movement  13?")) {
-             passScreen();
+  if(OS == "iOS"){
+    DeviceMotionEvent.requestPermission().then(response => {
+      if (response == 'granted') {
+        passScreen();
+      // Add a listener to get smartphone orientation 
+          // in the alpha-beta-gamma axes (units in degrees)
           
-             // Add event listener for device motion
-              window.addEventListener('devicemotion', handleMotion);
-    
-              function handleMotion(event) {
-                  const accelerationX = event.accelerationIncludingGravity.x;
-                  const accelerationY = event.accelerationIncludingGravity.y;
-                  zAcc = accelerationY;
-                  // Calculate the new position based on device motion
-                  posX += accelerationX / 10; // Adjust the factor as needed
-                  posY += accelerationY / 10; // Adjust the factor as needed
-    
-                  // Limit the position to stay within the bounds of the screen
-                  posX = Math.min(Math.max(posX, -87), 0);
-                  posY = Math.min(Math.max(posY, -66), 0);
-                // Update the background position\
-                  
-                  background.style.transform = `translate(${posX}%, ${posY}%)`;
-                  
-                  let letter = positions[ind].value;
-                  if(ind < positions.length){
-                    searchFor(letter);
-                    letter = positions[ind].value;
-                  }
-                  
-              }
-          } else {
-              alert("Motion-based background movement is disabled.");
+            window.addEventListener('devicemotion', handleMotion);
+
+            function handleMotion(event) {
+                const accelerationX = event.accelerationIncludingGravity.x;
+                const accelerationY = event.accelerationIncludingGravity.y;
+                zAcc = event.accelerationIncludingGravity.z;
+                if(zAcc < 1){
+                  horizontal = true;
+                }
+                else{
+                  horizontal = false;
+                }
+                // Calculate the new position based on device motion
+                posX += accelerationX / 10; // Adjust the factor as needed
+                posY += accelerationY / 10; // Adjust the factor as needed
+  
+                // Limit the position to stay within the bounds of the screen
+                posX = Math.min(Math.max(posX, -87), 0);
+                posY = Math.min(Math.max(posY, -66), 0);
+              // Update the background position\
+                
+                background.style.transform = `translate(${posX}%, ${posY}%)`;
+                
+                let letter = positions[ind].value;
+                if(ind < positions.length){
+                  searchFor(letter);
+                  letter = positions[ind].value;
+                }   
+            }
           }
-      } else {
-          alert("Device motion is not supported in your browser.");
-      }
+      });
     
+  }else if(OS == "Android"){
+      if (window.DeviceMotionEvent) {
+      
+        // Display a permission dialog
+        if (confirm("Do you want to enable motion-based background movement  13?")) {
+            
+        
+            // Add event listener for device motion
+            window.addEventListener('devicemotion', handleMotion);
+  
+            function handleMotion(event) {
+                const accelerationX = event.accelerationIncludingGravity.x;
+                const accelerationY = event.accelerationIncludingGravity.y;
+                zAcc = accelerationY;
+                // Calculate the new position based on device motion
+                posX += accelerationX / 10; // Adjust the factor as needed
+                posY += accelerationY / 10; // Adjust the factor as needed
+  
+                // Limit the position to stay within the bounds of the screen
+                posX = Math.min(Math.max(posX, -87), 0);
+                posY = Math.min(Math.max(posY, -66), 0);
+              // Update the background position\
+                
+                background.style.transform = `translate(${posX}%, ${posY}%)`;
+                
+                let letter = positions[ind].value;
+                if(ind < positions.length){
+                  searchFor(letter);
+                  letter = positions[ind].value;
+                }
+                
+            }
+            passScreen();
+        } else {
+            alert("Motion-based background movement is disabled.");
+        }
+    } else {
+        alert("Device motion is not supported in your browser.");
     }
+  
+  }
 }
 
   
