@@ -423,13 +423,23 @@ function setGyro(){
                 // Limit the position to stay within the bounds of the screen
                 posX = Math.min(Math.max(posX, -87), 0);
                 posY = Math.min(Math.max(posY, -66), 0);
-                background.style.transform = `translate(${posX}%, ${posY}%)`;
+                background.style.transform = `translate(${posX}%, ${-posY}%)`;
                 
-                let letter = respuestasPOLL1_1[questionSelected-1][ind];
-                if(ind < respuestasPOLL1_1[questionSelected-1][ind].length){
-                  searchFor(letter);
-                  letter = respuestasPOLL1_1[questionSelected-1][ind];
+                if(respuestasPOLL1_1[questionSelected-1] == "SI" || respuestasPOLL1_1[questionSelected-1] == "NO"){
+                  let letter = respuestasPOLL1_1[questionSelected-1];
+                  if(ind < 1){
+                    searchFor(letter);
+                    letter = respuestasPOLL1_1[questionSelected-1];
+                  }
                 }
+                else{
+                  let letter = respuestasPOLL1_1[questionSelected-1][ind];
+                  if(ind < respuestasPOLL1_1[questionSelected-1].length){
+                    searchFor(letter);
+                    letter = respuestasPOLL1_1[questionSelected-1][ind];
+                  }
+                }
+                
               }
 /*
 let letter =  respuestasPOLL1_1[questionSelected-1][ind];
