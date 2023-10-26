@@ -5,6 +5,145 @@ const background = document.getElementById('background');
 let posX = -43.5; // initial X position
 let posY = -33; // initial Y position
 
+let preguntas = [];
+
+// POLL 1
+const poll1 = [
+  {
+    pregunta: "¿Hay alguien ahí?",
+    respuesta: "SI"
+  },
+  {
+    pregunta: "¿Hay un espíritu aquí?",
+    respuesta: "BOO"
+  },
+  {
+    pregunta: "¿Estás por aquí?",
+    respuesta: "SI"
+  },
+  {
+    pregunta: "¿Estás atrapado aquí?",
+    respuesta: "NO"
+  },
+  {
+    pregunta: "¿Estás en este castillo?",
+    respuesta: "SI"
+  },
+  {
+    pregunta: "¿Estás por tu propia voluntad?",
+    respuesta: "SI"
+  },
+  {
+    pregunta: "¿Quién eres?",
+    respuesta: "KING"
+  },
+  {
+    pregunta: "¿Cómo te llamas?",
+    respuesta: "KING"
+  },
+  {
+    pregunta: "¿Cuál es tu nombre?",
+    respuesta: "KING"
+  }
+];
+
+// POLL 2
+const poll2 = [
+  {
+    pregunta: "¿Cómo llegaste aquí?",
+    respuesta: "FUEGO"
+  },
+  {
+    pregunta: "¿Cómo moriste?",
+    respuesta: "INCENDIO"
+  },
+  {
+    pregunta: "¿Estás vivo o muerto?",
+    respuesta: "AMBAS"
+  },
+  {
+    pregunta: "¿Eres un espíritu bueno o malo?",
+    respuesta: "DEPENDE"
+  },
+  {
+    pregunta: "¿Por qué estás aquí?",
+    respuesta: "HAMBURGUESAS"
+  },
+  {
+    pregunta: "¿Eres amigable?",
+    respuesta: "DEPENDE"
+  },
+  {
+    pregunta: "¿Dónde estás?",
+    respuesta: "CERCA"
+  },
+  {
+    pregunta: "¿Dónde te encuentras ahora?",
+    respuesta: "CERCA"
+  },
+  {
+    pregunta: "¿Conoces el futuro?",
+    respuesta: "NO"
+  }
+];
+
+// POLL 3
+const poll3 = [
+  {
+    pregunta: "¿Tienes algo para mí?",
+    respuesta: "WHOPPER"
+  },
+  {
+    pregunta: "¿Quieres darme algo?",
+    respuesta: "NO"
+  },
+  {
+    pregunta: "¿Tienes un mensaje para nosotros?",
+    respuesta: "WHOPPER"
+  },
+  {
+    pregunta: "¿Nos puedes dar un consejo?",
+    respuesta: "CORRAN"
+  },
+  {
+    pregunta: "Tengo hambre, ¿puedes ayudarme?",
+    respuesta: "WHOPPER"
+  },
+  {
+    pregunta: "¿Quieres que hagamos algo por ti?",
+    respuesta: "SALVENSE"
+  },
+  {
+    pregunta: "¿Puedes mostrarnos un signo de tu presencia?",
+    respuesta: "WHOPPER"
+  },
+  {
+    pregunta: "¿Qué piensas sobre nosotros?",
+    respuesta: "TONTOS"
+  },
+  {
+    pregunta: "¿Puedes ayudarnos de alguna forma?",
+    respuesta: "WHOPPER"
+  }
+];
+
+// Función para agrupar de a 3 preguntas
+function groupQuestions(poll) {
+  const groups = [];
+  for (let i = 0; i < poll.length; i += 3) {
+    groups.push(poll.slice(i, i + 3));
+  }
+  return groups;
+}
+
+// Agrupa las preguntas de cada POLL y agrega los grupos a la variable "preguntas"
+preguntas.push(groupQuestions(poll1));
+preguntas.push(groupQuestions(poll2));
+preguntas.push(groupQuestions(poll3));
+
+console.log(preguntas); // Muestra la variable "preguntas" en la consola
+
+
 let positions = [
     { value: "si", x: -17, y: 0 },
     { value: "no", x: -69, y: 0 },
@@ -52,7 +191,7 @@ let positions = [
   const tilt = document.querySelector("#tilt");
   const instructions = document.querySelector("#instructions");
   const cuestions = document.querySelector("#cuestions");
-  const game = document.querySelector("#cuestions");
+  const game = document.querySelector("#game");
   const winner = document.querySelector("#winner");
   const loser = document.querySelector("#loser");
 
@@ -60,6 +199,8 @@ function passScreen(){
   gameStep++;
   gameManager(gameStep);
 }
+
+let cuestionPoll = 0;
 
 function gameManager(_gameStep){
   switch(_gameStep){
@@ -84,11 +225,27 @@ function gameManager(_gameStep){
       setTimeout(passScreen, 10000);
     break; 
     case 5:
-      inGame = true;
+      if(cuestionPoll < 3){
+        // Acceso a las respuestas en el "POLL 1"
+        const respuestasPOLL1_1 = preguntas[cuestionPoll][Math.random(0,2)].map((pregunta) => pregunta.respuesta);
+
+        // Acceso a las preguntas en el "POLL 1"
+        const preguntasPOLL1_1 = preguntas[cuestionPoll][Math.random(0,2)].map((pregunta) => pregunta.pregunta);
+
+        document.querySelector("#q1").value = preguntasPOLL1_1[0];
+        document.querySelector("#q2").value = preguntasPOLL1_1[1];
+        document.querySelector("#q3").value = preguntasPOLL1_1[2];
+      }
+      
       instructions.classList.add('hide');
-      game.classList.remove('hide');
+      cuestions.classList.remove('hide');
     break;  
-   
+   case 6:
+    inGame = true;
+    cuestions.classList.add('hide');
+    game.classList.remove('hide')
+   break;
+
     default:
       splashscreen.classList.remove('hide');
     break;
@@ -180,7 +337,7 @@ function setGyro(){
                
                
               // Update the background position\
-              document.querySelector("#zAcc").innerHTML = `${zAcc}`;
+              //document.querySelector("#zAcc").innerHTML = `${zAcc}`;
               if((zAcc > 9 && !horizontal) || (zAcc < -9 && !horizontal)){
                 horizontal = true;
                 passScreen();
@@ -229,7 +386,7 @@ function setGyro(){
                
                
              // Update the background position\
-              document.querySelector("#zAcc").innerHTML = `${zAcc}`;
+              //document.querySelector("#zAcc").innerHTML = `${zAcc}`;
               if((zAcc > 9 && !horizontal) || (zAcc < -9 && !horizontal)){
                 horizontal = true;
                 passScreen();
