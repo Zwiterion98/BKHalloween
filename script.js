@@ -190,7 +190,7 @@ let positions = [
   const permission = document.querySelector("#permission");
   const tilt = document.querySelector("#tilt");
   const instructions = document.querySelector("#instructions");
-  const cuestions = document.querySelector("#cuestions");
+  const cuestions = document.querySelector("#game");
   const game = document.querySelector("#game");
   const winner = document.querySelector("#winner");
   const loser = document.querySelector("#loser");
@@ -238,7 +238,7 @@ function gameManager(_gameStep){
       }
       
       instructions.classList.add('hide');
-      cuestions.classList.remove('hide');
+      game.classList.remove('hide');
     break;  
    case 6:
     inGame = true;
