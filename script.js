@@ -259,7 +259,7 @@ function gameManager(_gameStep){
 
          cuestionPoll++;
       }
-      
+      inGame = true;
       
     break;  
    case 6:
@@ -373,7 +373,7 @@ function setGyro(){
                 posX = Math.min(Math.max(posX, -87), 0);
                 posY = Math.min(Math.max(posY, -66), 0);
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
-               
+                
                 let letter = positions[ind].value;
                 if(ind < positions.length){
                   searchFor(letter);
@@ -423,6 +423,12 @@ function setGyro(){
                 posY = Math.min(Math.max(posY, -66), 0);
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
+                let letter = positions[ind].value;
+                if(ind < positions.length){
+                  searchFor(letter);
+                  letter = positions[ind].value;
+                }
+              }
 /*
 let letter =  respuestasPOLL1_1[questionSelected-1][ind];
                 if(ind < respuestasPOLL1_1[questionSelected-1].length){
@@ -441,12 +447,7 @@ let letter =  respuestasPOLL1_1[questionSelected-1][ind];
               }
 */
 
-                let letter = positions[ind].value;
-                if(ind < positions[ind].value){
-                  searchFor('a');
-                  letter = positions[ind].value;
-                }
-              }
+                
             }
           }
         } else {
