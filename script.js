@@ -248,7 +248,7 @@ function gameManager(_gameStep){
       
       if(cuestionPoll < 3){
         // Acceso a las respuestas en el "POLL 1"
-        questionAsked =  Math.round(Math.random(0,2));
+        questionAsked =  Math.round(Math.random()*2);
         respuestasPOLL1_1 = preguntas[cuestionPoll][questionAsked].map((pregunta) => pregunta.respuesta);
 
         // Acceso a las preguntas en el "POLL 1"
@@ -263,17 +263,16 @@ function gameManager(_gameStep){
       }
       inGame = true;
     break;  
-   case 6:
-    inGame = true;
-    cuestionPoll++;
-    cuestions.classList.add('hide');
-    game.classList.remove('hide');
-   break;
+    case 6:
+      inGame = true;
+      cuestions.classList.add('hide');
+      game.classList.remove('hide');
+    break;
 
    case 7:
       game.classList.add('hide');
       cuestions.classList.add('hide');
-      if(respuestasPOLL1_1[questionSelected] == "WHOPPER"){
+      if(gano){
         winner.classList.remove('hide');
       }
       else{
@@ -354,6 +353,7 @@ function getMobileOperatingSystem() {
 let zAcc = 0;
 let horizontal = false;
 let inGame = false;
+let gano = false;
 function setGyro(){
   OS = getMobileOperatingSystem();
   if(OS == "iOS"){
@@ -475,6 +475,9 @@ function setGyro(){
                 }
                 else{
                   let letter = respuestasPOLL1_1[questionSelected-1][ind];
+                  if(respuestasPOLL1_1[questionSelected-1] == "WHOPPER" ){
+                    gano = true;
+                  }
                   if(ind < respuestasPOLL1_1[questionSelected-1].length){
                     searchFor(letter);
                     letter = respuestasPOLL1_1[questionSelected-1][ind];
