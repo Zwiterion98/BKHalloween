@@ -244,7 +244,7 @@ function gameManager(_gameStep){
     case 5:
       instructions.classList.add('hide');
       cuestions.classList.remove('hide');
-      /*
+      
       if(cuestionPoll < 3){
         // Acceso a las respuestas en el "POLL 1"
         questionAsked =  min(max(intval(Math.round(Math.random(0,2))), 0), 2); ;
@@ -258,7 +258,7 @@ function gameManager(_gameStep){
         
          cuestionPoll++;
       }
-      */
+      
       
     break;  
    case 6:
