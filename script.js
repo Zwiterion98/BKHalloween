@@ -425,10 +425,10 @@ function setGyro(){
                 posY = Math.min(Math.max(posY, -66), 0);
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
-                let letter = positions[ind].value;
-                if(ind < positions.length){
-                  searchFor('A');
-                  letter = positions[ind].value;
+                let letter = respuestasPOLL1_1[questionSelected-1][ind];
+                if(ind < respuestasPOLL1_1[questionSelected-1][ind].length){
+                  searchFor(letter);
+                  letter = respuestasPOLL1_1[questionSelected-1][ind];
                 }
               }
 /*
