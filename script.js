@@ -256,6 +256,7 @@ function gameManager(_gameStep){
         q2.value = preguntasPOLL1_1[1];
         q3.value = preguntasPOLL1_1[2];
         
+        
          cuestionPoll++;
       }
       
