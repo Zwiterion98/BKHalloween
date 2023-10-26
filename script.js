@@ -227,6 +227,7 @@ function gameManager(_gameStep){
     case 5:
       instructions.classList.add('hide');
       cuestions.classList.remove('hide');
+      document.querySelector("#q1").value = "preguntasPOLL1_1[0]";
       if(cuestionPoll < 3){
         // Acceso a las respuestas en el "POLL 1"
         const respuestasPOLL1_1 = preguntas[cuestionPoll][Math.random(0,2)].map((pregunta) => pregunta.respuesta);
