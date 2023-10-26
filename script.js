@@ -200,8 +200,22 @@ function passScreen(){
   gameManager(gameStep);
 }
 
-let cuestionPoll = 0;
+const q2 = document.querySelector("#q2");
+q2.addEventListener("click", ()=>{
+  passScreen();
+});
+const q3 = document.querySelector("#q3");
+q3.addEventListener("click", ()=>{
+  passScreen();
+});
+const q1 = document.querySelector("#q1");
+q1.addEventListener("click", ()=>{
+  passScreen();
+});
 
+let cuestionPoll = 0;
+let respuestasPOLL1_1;
+let questionAsked = 0;
 function gameManager(_gameStep){
   switch(_gameStep){
     case 0:
@@ -230,25 +244,26 @@ function gameManager(_gameStep){
       
       if(cuestionPoll < 3){
         // Acceso a las respuestas en el "POLL 1"
-        const respuestasPOLL1_1 = preguntas[cuestionPoll][Math.round(Math.random(0,2))].map((pregunta) => pregunta.respuesta);
+        questionAsked = Math.round(Math.random(0,2));
+        respuestasPOLL1_1 = preguntas[cuestionPoll][questionAsked].map((pregunta) => pregunta.respuesta);
 
         // Acceso a las preguntas en el "POLL 1"
-        const preguntasPOLL1_1 = preguntas[cuestionPoll][Math.round(Math.random(0,2))].map((pregunta) => pregunta.pregunta);
-
-        document.querySelector("#q1").value = preguntasPOLL1_1[0];
-        document.querySelector("#q2").value = preguntasPOLL1_1[1];
-        document.querySelector("#q3").value = preguntasPOLL1_1[2];
-        // cuestionPoll++;
+        const preguntasPOLL1_1 = preguntas[cuestionPoll][questionAsked].map((pregunta) => pregunta.pregunta);
+        q1.value = preguntasPOLL1_1[0];
+        q2.value = preguntasPOLL1_1[1];
+        q3.value = preguntasPOLL1_1[2];
+        
+         cuestionPoll++;
       }
       
       
     break;  
-   /*case 6:
+   case 6:
     inGame = true;
     cuestions.classList.add('hide');
     game.classList.remove('hide')
    break;
-*/
+
     default:
       splashscreen.classList.remove('hide');
     break;
