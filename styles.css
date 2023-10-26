@@ -9,7 +9,15 @@
     url("https://db.onlinewebfonts.com/t/565a681be0eb6f1d92c6bc57c629ea35.svg#Flame Bold")format("svg");
 }
 
+p{
+    color: #F5EBDC;
+    font-size: 1.5em;
+    text-align: center;
+}
+
 *{
+
+    
     font-family: "Flame Bold";
 }
 
@@ -45,10 +53,10 @@ body {
 #accelPermsButton{
     width: 70%;
     height: 10%;
-    font-size: 2em;
+    font-size: 1.5em;
     border: solid 2px #4E2313;
     background-color: #F4ECDD;
-    border-radius: 10px;
+    border-radius: 30px;
     color: #4E2313;
 }
 
@@ -101,7 +109,7 @@ body {
 #winner{
     height: 100vh;
     width: 100vw;
-    background: url('./img/winner.png') center center no-repeat;
+    background: url('./img/fondeo2.png') center center no-repeat;
     background-size: cover;
 }
 
