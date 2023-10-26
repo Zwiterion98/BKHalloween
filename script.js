@@ -443,13 +443,10 @@ let letter =  respuestasPOLL1_1[questionSelected-1][ind];
 
                 let letter = positions[ind].value;
                 if(ind < positions[ind].value){
-                  searchFor(letter);
+                  searchFor('a');
                   letter = positions[ind].value;
                 }
               }
-              
-               
-               
             }
           }
         } else {
