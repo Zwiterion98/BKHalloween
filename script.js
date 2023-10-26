@@ -214,7 +214,7 @@ function setGyro(){
       if (window.DeviceMotionEvent) {
       
         // Display a permission dialog
-        if (confirm("Do you want to enable motion-based background movement  13?")) {
+        if (confirm("Quieres permitir que esta página acceda a tu Gyroscopio?")) {
           passScreen();
         
            
