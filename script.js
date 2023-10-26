@@ -279,7 +279,9 @@ function searchFor(_letter) {
   const infoElement = document.querySelector("#info");
 
   // Get the position of the target element (specified by _letter)
-  const targetPosition = positions.find((element) => element.value === _letter);
+  let str = "";
+  str = _letter;
+  const targetPosition = positions.find((element) => element.value === _letter.toLowerCase());
 
   if (targetPosition) {
     // Define the threshold for proximity
@@ -425,7 +427,7 @@ function setGyro(){
                 
                 let letter = positions[ind].value;
                 if(ind < positions.length){
-                  searchFor(letter);
+                  searchFor('A');
                   letter = positions[ind].value;
                 }
               }
