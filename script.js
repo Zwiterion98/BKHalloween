@@ -190,7 +190,7 @@ let positions = [
   const permission = document.querySelector("#permission");
   const tilt = document.querySelector("#tilt");
   const instructions = document.querySelector("#instructions");
-  const cuestions = document.querySelector("#game");
+  const cuestions = document.querySelector("#cuestions");
   const game = document.querySelector("#game");
   const winner = document.querySelector("#winner");
   const loser = document.querySelector("#loser");
@@ -225,6 +225,8 @@ function gameManager(_gameStep){
       setTimeout(passScreen, 10000);
     break; 
     case 5:
+      instructions.classList.add('hide');
+      cuestions.classList.remove('hide');
       if(cuestionPoll < 3){
         // Acceso a las respuestas en el "POLL 1"
         const respuestasPOLL1_1 = preguntas[cuestionPoll][Math.random(0,2)].map((pregunta) => pregunta.respuesta);
@@ -235,17 +237,17 @@ function gameManager(_gameStep){
         document.querySelector("#q1").value = preguntasPOLL1_1[0];
         document.querySelector("#q2").value = preguntasPOLL1_1[1];
         document.querySelector("#q3").value = preguntasPOLL1_1[2];
+        // cuestionPoll++;
       }
       
-      instructions.classList.add('hide');
-      game.classList.remove('hide');
+      
     break;  
-   case 6:
+   /*case 6:
     inGame = true;
     cuestions.classList.add('hide');
     game.classList.remove('hide')
    break;
-
+*/
     default:
       splashscreen.classList.remove('hide');
     break;
