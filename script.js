@@ -227,22 +227,13 @@ function gameManager(_gameStep){
     case 5:
       instructions.classList.add('hide');
       cuestions.classList.remove('hide');
-      // Acceso a las respuestas en el "POLL 1"
-      const respuestasPOLL1_1 = preguntas[cuestionPoll][Math.random(0,2)].map((pregunta) => pregunta.respuesta);
-
-      // Acceso a las preguntas en el "POLL 1"
-      const preguntasPOLL1_1 = preguntas[cuestionPoll][Math.random(0,2)].map((pregunta) => pregunta.pregunta);
-
-      document.querySelector("#q1").value = preguntasPOLL1_1[0];
-      document.querySelector("#q2").value = preguntasPOLL1_1[1];
-      document.querySelector("#q3").value = preguntasPOLL1_1[2];
-      // cuestionPoll++;
+      
       if(cuestionPoll < 3){
         // Acceso a las respuestas en el "POLL 1"
-        const respuestasPOLL1_1 = preguntas[cuestionPoll][Math.random(0,2)].map((pregunta) => pregunta.respuesta);
+        const respuestasPOLL1_1 = preguntas[cuestionPoll][Math.round(Math.random(0,2))].map((pregunta) => pregunta.respuesta);
 
         // Acceso a las preguntas en el "POLL 1"
-        const preguntasPOLL1_1 = preguntas[cuestionPoll][Math.random(0,2)].map((pregunta) => pregunta.pregunta);
+        const preguntasPOLL1_1 = preguntas[cuestionPoll][Math.round(Math.random(0,2))].map((pregunta) => pregunta.pregunta);
 
         document.querySelector("#q1").value = preguntasPOLL1_1[0];
         document.querySelector("#q2").value = preguntasPOLL1_1[1];
