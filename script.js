@@ -199,17 +199,20 @@ function passScreen(){
   gameStep++;
   gameManager(gameStep);
 }
-
+let questionSelected = 0;
 const q2 = document.querySelector("#q2");
 q2.addEventListener("click", ()=>{
+  questionSelected = 2;
   passScreen();
 });
 const q3 = document.querySelector("#q3");
 q3.addEventListener("click", ()=>{
+  questionSelected = 3;
   passScreen();
 });
 const q1 = document.querySelector("#q1");
 q1.addEventListener("click", ()=>{
+  questionSelected = 1;
   passScreen();
 });
 
@@ -418,12 +421,21 @@ function setGyro(){
                 posX = Math.min(Math.max(posX, -87), 0);
                 posY = Math.min(Math.max(posY, -66), 0);
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
-               
-                let letter = positions[ind].value;
-                if(ind < positions.length){
+                
+                let letter =  respuestasPOLL1_1[questionSelected-1][ind];
+                if(ind < respuestasPOLL1_1[questionSelected-1].length){
                   searchFor(letter);
-                  letter = positions[ind].value;
+                  letter = respuestasPOLL1_1[questionSelected-1][ind];
                 }
+                else{
+                  inGame = false;
+                }
+              }
+              else{
+                ind = 0;
+                gameStep = 4;
+                cuestionPoll++;
+                passScreen();
               }
                
                
