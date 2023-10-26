@@ -243,6 +243,7 @@ function gameManager(_gameStep){
     break; 
     case 5:
       instructions.classList.add('hide');
+      game.classList.add('hide');
       cuestions.classList.remove('hide');
       
       if(cuestionPoll < 3){
