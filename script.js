@@ -260,15 +260,28 @@ function gameManager(_gameStep){
 
          cuestionPoll++;
       }
+      else{
+        gameStep = 6;
+        passScreen();
+      }
       inGame = true;
       
     break;  
    case 6:
     inGame = true;
     cuestions.classList.add('hide');
-    game.classList.remove('hide')
+    game.classList.remove('hide');
    break;
 
+   case 7:
+      game.classList.add('hide');
+      if(respuestasPOLL1_1[questionAsked] == "WHOOPER"){
+        winner.classList.remove('hide');
+      }
+      else{
+        loser.classList.remove('hide');
+      }
+   break;
     default:
       splashscreen.classList.remove('hide');
     break;
@@ -361,7 +374,7 @@ function setGyro(){
                
                
                
-              // Update the background position\
+             // Update the background position\
               //document.querySelector("#zAcc").innerHTML = `${zAcc}`;
               if((zAcc > 9 && !horizontal) || (zAcc < -9 && !horizontal)){
                 horizontal = true;
@@ -377,14 +390,36 @@ function setGyro(){
                 posY = Math.min(Math.max(posY, -66), 0);
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
-                let letter = positions[ind].value;
-                if(ind < positions.length){
-                  searchFor(letter);
-                  letter = positions[ind].value;
+                if(respuestasPOLL1_1[questionSelected-1] == "SI" || respuestasPOLL1_1[questionSelected-1] == "NO"){
+                  let letter = respuestasPOLL1_1[questionSelected-1];
+                  if(ind < 1){
+                    searchFor(letter);
+                    letter = respuestasPOLL1_1[questionSelected-1];
+                  }
+                  else{
+                    ind = 0;
+                    gameStep = 4;
+                    inGame = false;
+                    cuestionPoll++;
+                    passScreen();
+                  }
                 }
+                else{
+                  let letter = respuestasPOLL1_1[questionSelected-1][ind];
+                  if(ind < respuestasPOLL1_1[questionSelected-1].length){
+                    searchFor(letter);
+                    letter = respuestasPOLL1_1[questionSelected-1][ind];
+                  }
+                  else{
+                    ind = 0;
+                    gameStep = 4;
+                    inGame = false;
+                    cuestionPoll++;
+                    passScreen();
+                  }
+                } 
               }
-               
-               
+                
             }
        }else {
         alert("Motion-based background movement is disabled.");
@@ -435,6 +470,7 @@ function setGyro(){
                   else{
                     ind = 0;
                     gameStep = 4;
+                    inGame = false;
                     cuestionPoll++;
                     passScreen();
                   }
@@ -448,30 +484,12 @@ function setGyro(){
                   else{
                     ind = 0;
                     gameStep = 4;
+                    inGame = false;
                     cuestionPoll++;
                     passScreen();
                   }
-                }
-                
+                } 
               }
-/*
-let letter =  respuestasPOLL1_1[questionSelected-1][ind];
-                if(ind < respuestasPOLL1_1[questionSelected-1].length){
-                  searchFor(letter);
-                  letter = respuestasPOLL1_1[questionSelected-1][ind];
-                }
-                else{
-                  inGame = false;
-                }
-              }
-              else{
-                ind = 0;
-                gameStep = 4;
-                cuestionPoll++;
-                passScreen();
-              }
-*/
-
                 
             }
           }
