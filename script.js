@@ -255,27 +255,24 @@ function gameManager(_gameStep){
         const preguntasPOLL1_1 = preguntas[cuestionPoll][questionAsked].map((pregunta) => pregunta.pregunta);
         q1.value = preguntasPOLL1_1[0];
         q2.value = preguntasPOLL1_1[1];
-        q3.value = preguntasPOLL1_1[2];
-        
-
-         cuestionPoll++;
+        q3.value = preguntasPOLL1_1[2];  
       }
       else{
         gameStep = 6;
         passScreen();
       }
       inGame = true;
-      
     break;  
    case 6:
     inGame = true;
+    cuestionPoll++;
     cuestions.classList.add('hide');
     game.classList.remove('hide');
    break;
 
    case 7:
       game.classList.add('hide');
-      if(respuestasPOLL1_1[questionAsked] == "WHOOPER"){
+      if(respuestasPOLL1_1[questionAsked] == "WHOPPER"){
         winner.classList.remove('hide');
       }
       else{
