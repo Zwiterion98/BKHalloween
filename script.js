@@ -404,7 +404,11 @@ function setGyro(){
                 }
                 else{
                   let letter = respuestasPOLL1_1[questionSelected-1][ind];
+                  
                   if(ind < respuestasPOLL1_1[questionSelected-1].length){
+                    if(letter == 'W'){
+                      gano = true;
+                    }
                     searchFor(letter);
                     letter = respuestasPOLL1_1[questionSelected-1][ind];
                   }
@@ -451,7 +455,7 @@ function setGyro(){
               }
               if(inGame){
                 // Calculate the new position based on device motion
-                posX += accelerationX / 10; // Adjust the factor as needed
+                posX += -(accelerationX / 10); // Adjust the factor as needed
                 posY += accelerationY / 10; // Adjust the factor as needed
   
                 // Limit the position to stay within the bounds of the screen
