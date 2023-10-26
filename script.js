@@ -423,7 +423,7 @@ function setGyro(){
                 // Limit the position to stay within the bounds of the screen
                 posX = Math.min(Math.max(posX, -87), 0);
                 posY = Math.min(Math.max(posY, -66), 0);
-                background.style.transform = `translate(${posX}%, ${-posY}%)`;
+                background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
                 if(respuestasPOLL1_1[questionSelected-1] == "SI" || respuestasPOLL1_1[questionSelected-1] == "NO"){
                   let letter = respuestasPOLL1_1[questionSelected-1];
@@ -431,12 +431,24 @@ function setGyro(){
                     searchFor(letter);
                     letter = respuestasPOLL1_1[questionSelected-1];
                   }
+                  else{
+                    ind = 0;
+                    gameStep = 4;
+                    cuestionPoll++;
+                    passScreen();
+                  }
                 }
                 else{
                   let letter = respuestasPOLL1_1[questionSelected-1][ind];
                   if(ind < respuestasPOLL1_1[questionSelected-1].length){
                     searchFor(letter);
                     letter = respuestasPOLL1_1[questionSelected-1][ind];
+                  }
+                  else{
+                    ind = 0;
+                    gameStep = 4;
+                    cuestionPoll++;
+                    passScreen();
                   }
                 }
                 
