@@ -422,13 +422,28 @@ function setGyro(){
                 posY = Math.min(Math.max(posY, -66), 0);
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
                 
-                let letter =  respuestasPOLL1_1[questionSelected-1][ind];
+/*
+let letter =  respuestasPOLL1_1[questionSelected-1][ind];
                 if(ind < respuestasPOLL1_1[questionSelected-1].length){
                   searchFor(letter);
                   letter = respuestasPOLL1_1[questionSelected-1][ind];
                 }
                 else{
                   inGame = false;
+                }
+              }
+              else{
+                ind = 0;
+                gameStep = 4;
+                cuestionPoll++;
+                passScreen();
+              }
+*/
+
+                let letter = positions[ind].value;
+                if(ind < positions[ind].value){
+                  searchFor(letter);
+                  letter = positions[ind].value;
                 }
               }
               else{
