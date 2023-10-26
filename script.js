@@ -247,7 +247,7 @@ function gameManager(_gameStep){
       
       if(cuestionPoll < 3){
         // Acceso a las respuestas en el "POLL 1"
-        questionAsked =  min(max(intval(Math.round(Math.random(0,2))), 0), 2); ;
+        questionAsked =  Math.round(Math.random(0,2));
         respuestasPOLL1_1 = preguntas[cuestionPoll][questionAsked].map((pregunta) => pregunta.respuesta);
 
         // Acceso a las preguntas en el "POLL 1"
@@ -256,7 +256,7 @@ function gameManager(_gameStep){
         q2.value = preguntasPOLL1_1[1];
         q3.value = preguntasPOLL1_1[2];
         
-        
+
          cuestionPoll++;
       }
       
