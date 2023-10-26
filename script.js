@@ -380,8 +380,8 @@ function setGyro(){
               }
               if(inGame){
                 // Calculate the new position based on device motion
-                posX += accelerationX / 10; // Adjust the factor as needed
-                posY += accelerationY / 10; // Adjust the factor as needed
+                posX += (accelerationX / 10); // Adjust the factor as needed
+                posY += -(accelerationY / 10); // Adjust the factor as needed
   
                 // Limit the position to stay within the bounds of the screen
                 posX = Math.min(Math.max(posX, -87), 0);
@@ -455,8 +455,8 @@ function setGyro(){
               }
               if(inGame){
                 // Calculate the new position based on device motion
-                posX += -(accelerationX / 10); // Adjust the factor as needed
-                posY += accelerationY / 10; // Adjust the factor as needed
+                posX += (accelerationX / 10); // Adjust the factor as needed
+                posY += -(accelerationY / 10); // Adjust the factor as needed
   
                 // Limit the position to stay within the bounds of the screen
                 posX = Math.min(Math.max(posX, -87), 0);
