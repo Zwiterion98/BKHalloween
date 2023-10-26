@@ -118,6 +118,10 @@ input, button{
     gap: 1em;
 }
 
+#logoImg{
+    width: 80%;
+}
+
 #loser{
     height: 100vh;
     width: 100vw;
