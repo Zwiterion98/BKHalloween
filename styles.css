@@ -51,9 +51,9 @@ body {
 }
 
 input, button{
-    width: 70%;
+    width: 80%;
     height: 10%;
-    font-size: 5vw;
+    font-size: 3vw;
     border: solid 2px #4E2313;
     background-color: #F4ECDD;
     border-radius: 30px;

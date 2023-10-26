@@ -228,9 +228,9 @@ function setGyro(){
                
                
                
-              // Update the background position\
+             // Update the background position\
               document.querySelector("#zAcc").innerHTML = `${zAcc}`;
-              if(zAcc > 9 && !horizontal){
+              if((zAcc > 9 && !horizontal) || (zAcc < -9 && !horizontal)){
                 horizontal = true;
                 passScreen();
               }
