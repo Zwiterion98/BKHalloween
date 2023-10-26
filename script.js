@@ -273,7 +273,7 @@ function gameManager(_gameStep){
    case 7:
       game.classList.add('hide');
       cuestions.classList.add('hide');
-      if(respuestasPOLL1_1[questionAsked] == "WHOPPER"){
+      if(respuestasPOLL1_1[questionSelected] == "WHOPPER"){
         winner.classList.remove('hide');
       }
       else{
