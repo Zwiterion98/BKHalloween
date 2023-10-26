@@ -475,7 +475,7 @@ function setGyro(){
                 }
                 else{
                   let letter = respuestasPOLL1_1[questionSelected-1][ind];
-                  if(respuestasPOLL1_1[questionSelected-1] == "WHOPPER" ){
+                  if(respuestasPOLL1_1[questionSelected-1] == "WHOPPER"){
                     gano = true;
                   }
                   if(ind < respuestasPOLL1_1[questionSelected-1].length){

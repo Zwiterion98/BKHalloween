@@ -121,13 +121,13 @@ input, button{
 #loser{
     height: 100vh;
     width: 100vw;
+    background: url('./img/fondo.png') center center no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
-    background: url('./img/fondo.png') center center no-repeat;
-    background-size: cover;
 }
 
 #permission{
