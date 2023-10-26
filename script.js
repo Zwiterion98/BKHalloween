@@ -244,10 +244,10 @@ function gameManager(_gameStep){
     case 5:
       instructions.classList.add('hide');
       cuestions.classList.remove('hide');
-      
+      /*
       if(cuestionPoll < 3){
         // Acceso a las respuestas en el "POLL 1"
-        questionAsked = Math.round(Math.random(0,2));
+        questionAsked =  min(max(intval(Math.round(Math.random(0,2))), 0), 2); ;
         respuestasPOLL1_1 = preguntas[cuestionPoll][questionAsked].map((pregunta) => pregunta.respuesta);
 
         // Acceso a las preguntas en el "POLL 1"
@@ -258,7 +258,7 @@ function gameManager(_gameStep){
         
          cuestionPoll++;
       }
-      
+      */
       
     break;  
    case 6:
@@ -446,12 +446,7 @@ let letter =  respuestasPOLL1_1[questionSelected-1][ind];
                   letter = positions[ind].value;
                 }
               }
-              else{
-                ind = 0;
-                gameStep = 4;
-                cuestionPoll++;
-                passScreen();
-              }
+              
                
                
             }
