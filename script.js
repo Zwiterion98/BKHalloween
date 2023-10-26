@@ -234,7 +234,7 @@ function gameManager(_gameStep){
         // Acceso a las preguntas en el "POLL 1"
         const preguntasPOLL1_1 = preguntas[cuestionPoll][Math.random(0,2)].map((pregunta) => pregunta.pregunta);
 
-        document.querySelector("#q1").value = preguntasPOLL1_1[0];
+        document.querySelector("#q1").value = "preguntasPOLL1_1[0]";
         document.querySelector("#q2").value = preguntasPOLL1_1[1];
         document.querySelector("#q3").value = preguntasPOLL1_1[2];
         // cuestionPoll++;
