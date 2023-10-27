@@ -213,7 +213,7 @@ input, button{
     position: fixed;
     top: 40vh;
     left: 40vw;
-    z-index: 3;
+    z-index: 3 ;
     height: 100px;
     width: 100px;
     

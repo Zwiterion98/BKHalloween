@@ -301,7 +301,7 @@ function searchFor(_letter) {
   if (targetPosition) {
     // Define the threshold for proximity
     const proximityThreshold = 3; // Adjust this value as needed
-    const proximityThreshold2 = 12 ;
+    const proximityThreshold2 = 12;
     // Calculate the distance between #info and the target position
     const distanceX = Math.abs(targetPosition.x - posX);
   const distanceY = Math.abs(targetPosition.y - posY);
