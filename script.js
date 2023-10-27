@@ -518,6 +518,7 @@ function setGyro() {
 }
 
 async function preloadImages(imageURLs) {
+  console.log(imageURLs);
   imageURLs.forEach((url) => {
     const img = new Image();
     img.src = "./img/" + url;
