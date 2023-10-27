@@ -25,6 +25,9 @@ section{
     width: 100vw;
 }
 
+section img{
+    width: 50%;
+}
 section h1, h2{
     color:#4E2313;
 }
