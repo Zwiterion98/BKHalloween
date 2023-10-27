@@ -318,16 +318,19 @@ function searchFor(_letter) {
       // Change the border color to green
       infoElement.style.backgroundImage = 'url("./img/tag2.png")';
       letra.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
+      letra.classList.remove('hide');
       ind++;
     } 
     else if(Math.abs(distanceX) <= proximityThreshold2 && Math.abs(distanceY) <= proximityThreshold2){
       infoElement.style.backgroundImage = 'url("./img/tag2.png")';
       letra.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
+      letra.classList.remove('hide');
     }
     else {
       // Change the border color back to normal
       infoElement.style.backgroundImage = 'url("./img/tag3.png")';
       letra.style.backgroundImage = 'url("./img/fondoNone.png")';
+      letra.classList.add('hide');
       
     }
 
