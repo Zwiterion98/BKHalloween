@@ -407,7 +407,6 @@ function setGyro(){
                 }
                 else{
                   let letter = respuestasPOLL1_1[questionSelected-1][ind];
-                  document.title = respuestasPOLL1_1[questionSelected-1];
                   if(ind < respuestasPOLL1_1[questionSelected-1].length){
                     if(letter == 'W'){
                       gano = true;
