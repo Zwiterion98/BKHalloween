@@ -30,7 +30,7 @@ const poll1 = [
     respuesta: "SI"
   },
   {
-    pregunta: "¿Estás por tu propia voluntad?",
+    pregunta: "¿Estás aquí por tu propia voluntad?",
     respuesta: "SI"
   },
   {
@@ -299,7 +299,7 @@ function searchFor(_letter) {
 
   if (targetPosition) {
     // Define the threshold for proximity
-    const proximityThreshold = 1; // Adjust this value as needed
+    const proximityThreshold = 1.5; // Adjust this value as needed
     const proximityThreshold2 = 5;
     // Calculate the distance between #info and the target position
     const distanceX = Math.abs(targetPosition.x - posX);
