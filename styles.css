@@ -118,7 +118,7 @@ input, button{
     width: 100vw;
     display: flex;
     flex-direction: column;
-    padding-top: 2em;
+    padding-top: 10em;
     justify-content: start;
     align-items: center;
     background: url('./img/fondo.png') center center no-repeat;
@@ -184,6 +184,16 @@ input, button{
 #request{
     width: 50vw;
     height: 10vh;
+}
+#letra{
+    position: absolute;
+    height: 300%;
+    width: 800%;
+    background: url('./img/ouija-01.png') center center no-repeat;
+    background-size: cover;
+    transform-origin: center center;
+    transform: translate(50%, 50%);
+    z-index: 2;
 }
 
 #background {

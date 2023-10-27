@@ -1,5 +1,6 @@
 // Select the background element
 const background = document.getElementById('background');
+const letra = document.getElementById('letra');
 
 // Initialize variables for position
 let posX = -43.5; // initial X position
@@ -299,8 +300,8 @@ function searchFor(_letter) {
 
   if (targetPosition) {
     // Define the threshold for proximity
-    const proximityThreshold = 2; // Adjust this value as needed
-    const proximityThreshold2 = 5;
+    const proximityThreshold = 3; // Adjust this value as needed
+    const proximityThreshold2 = 10;
     // Calculate the distance between #info and the target position
     const distanceX = Math.abs(targetPosition.x - posX);
   const distanceY = Math.abs(targetPosition.y - posY);
@@ -316,17 +317,17 @@ function searchFor(_letter) {
     if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
       // Change the border color to green
       infoElement.style.backgroundImage = 'url("./img/tag2.png")';
-      background.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
+      letra.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
       ind++;
     } 
     else if(Math.abs(distanceX) <= proximityThreshold2 && Math.abs(distanceY) <= proximityThreshold2){
       infoElement.style.backgroundImage = 'url("./img/tag2.png")';
-      background.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
+      letra.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
     }
     else {
       // Change the border color back to normal
       infoElement.style.backgroundImage = 'url("./img/tag3.png")';
-      background.style.backgroundImage = 'url("./img/ouija-01.png")';
+      letra.style.backgroundImage = 'url("./img/fondoNone.png")';
       
     }
 
@@ -393,6 +394,7 @@ function setGyro(){
                 posX = Math.min(Math.max(posX, -87), 0);
                 posY = Math.min(Math.max(posY, -66), 0);
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
+                letra.style.transform = `translate(${posX}%, ${posY}%)`;
                 
                 if(respuestasPOLL1_1[questionSelected-1] == "SI" || respuestasPOLL1_1[questionSelected-1] == "NO"){
                   let letter = respuestasPOLL1_1[questionSelected-1];
@@ -467,7 +469,8 @@ function setGyro(){
                 posX = Math.min(Math.max(posX, -87), 0);
                 posY = Math.min(Math.max(posY, -66), 0);
                 background.style.transform = `translate(${posX}%, ${posY}%)`;
-                
+                letra.style.transform = `translate(${posX}%, ${posY}%)`;
+
                 if(respuestasPOLL1_1[questionSelected-1] == "SI" || respuestasPOLL1_1[questionSelected-1] == "NO"){
                   let letter = respuestasPOLL1_1[questionSelected-1];
                   if(ind < 1){
