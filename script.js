@@ -274,10 +274,13 @@ function gameManager(_gameStep){
       cuestions.classList.add('hide');
       if(gano){
         winner.classList.remove('hide');
+        // MOSTRAR QR VICTORIOSO
       }
       else{
         loser.classList.remove('hide');
       }
+      // GUARDAR EN CACHE ALGO PARA QUE NO PUEDA JUGAR DENUEVO
+      
    break;
     default:
       splashscreen.classList.remove('hide');

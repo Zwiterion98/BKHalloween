@@ -82,6 +82,10 @@ input, button{
     color: #4E2313;
 }
 
+#accelPermsButton{
+    font-size: 5vw;
+}
+
 #zAcc{
     width: 70%;
     height: 10%;
