@@ -525,7 +525,25 @@ function preloadImages(imageURLs) {
   });
 }
 
+async function loadQR() {
+
+  function getServerUrl() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'config.json', false);
+    xhr.send(null);
+    const data = JSON.parse(xhr.responseText);
+    return data.server_url;
+  }
+
+  SERVER_URL = getServerUrl();
+
+  const data = (await (await fetch(SERVER_URL + "/qr")).json()).qr;
+
+  alert(data)
+}
+
 window.onload = () => {
+  loadQR()
   preloadImages([
     "ouija-01.png",
     "a.png",
@@ -557,21 +575,4 @@ window.onload = () => {
     "fondo.png",
     "fondo2.png"
   ])
-}
-
-async function loadQR() {
-
-  function getServerUrl() {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'config.json', false);
-    xhr.send(null);
-    const data = JSON.parse(xhr.responseText);
-    return data.server_url;
-  }
-
-  SERVER_URL = getServerUrl();
-
-  const data = (await (await fetch(SERVER_URL + "/qr")).json()).qr;
-
-  alert(data)
 }
