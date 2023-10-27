@@ -146,57 +146,57 @@ console.log(preguntas); // Muestra la variable "preguntas" en la consola
 
 
 let positions = [
-  { value: "si", x: -17, y: 0 },
-  { value: "no", x: -69, y: 0 },
-  { value: "a", x: -6.3, y: -30 },
-  { value: "b", x: -13, y: -22 },
-  { value: "c", x: -18, y: -18 },
-  { value: "d", x: -24, y: -16 },
-  { value: "e", x: -30, y: -13 },
-  { value: "f", x: -36, y: -12 },
-  { value: "g", x: -42, y: -12 },
-  { value: "h", x: -49, y: -13 },
-  { value: "i", x: -55, y: -13 },
-  { value: "j", x: -60, y: -15 },
-  { value: "k", x: -68, y: -18 },
-  { value: "l", x: -72, y: -22 },
-  { value: "m", x: -78, y: -28 },
-  { value: "n", x: -6, y: -47 },
-  { value: "o", x: -11, y: -41 },
-  { value: "p", x: -15, y: -35 },
-  { value: "q", x: -21, y: -32 },
-  { value: "r", x: -28, y: -29 },
-  { value: "s", x: -35, y: -28 },
-  { value: "t", x: -40, y: -28 },
-  { value: "u", x: -46, y: -28 },
-  { value: "v", x: -53, y: -28 },
-  { value: "w", x: -61, y: -29 },
-  { value: "x", x: -69, y: -35 },
-  { value: "y", x: -76, y: -40 },
-  { value: "z", x: -79, y: -46 },
-  { value: "0", x: -67, y: -54 },
-  { value: "1", x: -17, y: -54 },
-  { value: "2", x: -22, y: -54 },
-  { value: "3", x: -28, y: -54 },
-  { value: "4", x: -33, y: -54 },
-  { value: "5", x: -39, y: -54 },
-  { value: "6", x: -45, y: -54 },
-  { value: "7", x: -50, y: -54 },
-  { value: "8", x: -56, y: -54 },
-  { value: "9", x: -61, y: -54 },
-  { value: "adios", x: -44, y: -66 },
-];
-let gameStep = 0;
-const splashscreen = document.querySelector("#splashscreen");
-const permission = document.querySelector("#permission");
-const tilt = document.querySelector("#tilt");
-const instructions = document.querySelector("#instructions");
-const cuestions = document.querySelector("#cuestions");
-const game = document.querySelector("#game");
-const winner = document.querySelector("#winner");
-const loser = document.querySelector("#loser");
+    { value: "si", x: -17, y: 0 },
+    { value: "no", x: -69, y: 0 },
+    { value: "a", x: -6.3, y: -30 },
+    { value: "b", x: -13, y: -22 },
+    { value: "c", x: -18, y: -18 },
+    { value: "d", x: -24, y: -16 },
+    { value: "e", x: -30, y: -13 },
+    { value: "f", x: -36, y: -12 },
+    { value: "g", x: -42, y: -12 },
+    { value: "h", x: -49, y: -13 },
+    { value: "i", x: -55, y: -13 },
+    { value: "j", x: -60, y: -15 },
+    { value: "k", x: -68, y: -18 },
+    { value: "l", x: -72, y: -22 },
+    { value: "m", x: -80, y: -28 },
+    { value: "n", x: -6, y: -47 },
+    { value: "o", x: -11, y: -41 },
+    { value: "p", x: -15, y: -35 },
+    { value: "q", x: -21, y: -32 },
+    { value: "r", x: -28, y: -29 },
+    { value: "s", x: -35, y: -28 },
+    { value: "t", x: -40, y: -28 },
+    { value: "u", x: -46, y: -28 },
+    { value: "v", x: -53, y: -28 },
+    { value: "w", x: -61, y: -29 },
+    { value: "x", x: -69, y: -35 },
+    { value: "y", x: -76, y: -40 },
+    { value: "z", x: -79, y: -46 },
+    { value: "0", x: -67, y: -54 },
+    { value: "1", x: -17, y: -54 },
+    { value: "2", x: -22, y: -54 },
+    { value: "3", x: -28, y: -54 },
+    { value: "4", x: -33, y: -54 },
+    { value: "5", x: -39, y: -54 },
+    { value: "6", x: -45, y: -54 },
+    { value: "7", x: -50, y: -54 },
+    { value: "8", x: -56, y: -54 },
+    { value: "9", x: -61, y: -54 },
+    { value: "adios", x: -44, y: -66 },
+  ];
+  let gameStep = 0;
+  const splashscreen = document.querySelector("#splashscreen");
+  const permission = document.querySelector("#permission");
+  const tilt = document.querySelector("#tilt");
+  const instructions = document.querySelector("#instructions");
+  const cuestions = document.querySelector("#cuestions");
+  const game = document.querySelector("#game");
+  const winner = document.querySelector("#winner");
+  const loser = document.querySelector("#loser");
 
-function passScreen() {
+function passScreen(){
   gameStep++;
   gameManager(gameStep);
 }
@@ -360,6 +360,7 @@ function getMobileOperatingSystem() {
 
   return "unknown";
 }
+
 let zAcc = 0;
 let horizontal = false;
 let inGame = false;
