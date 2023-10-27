@@ -217,3 +217,11 @@ input, button{
     width: 100px;
     
 }
+
+#QR{
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform-origin: center center;
+    height: 60vw;
+    width: 60vw;
+}
