@@ -118,9 +118,9 @@ input, button{
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding-top: 2em;
+    justify-content: start;
     align-items: center;
-    gap: 0.5em;
     background: url('./img/fondo.png') center center no-repeat;
     background-size: cover;
 }

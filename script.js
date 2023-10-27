@@ -299,7 +299,7 @@ function searchFor(_letter) {
 
   if (targetPosition) {
     // Define the threshold for proximity
-    const proximityThreshold = 1.5; // Adjust this value as needed
+    const proximityThreshold = 2; // Adjust this value as needed
     const proximityThreshold2 = 5;
     // Calculate the distance between #info and the target position
     const distanceX = Math.abs(targetPosition.x - posX);
@@ -316,12 +316,12 @@ function searchFor(_letter) {
     if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
       // Change the border color to green
       infoElement.style.backgroundImage = 'url("./img/tag2.png")';
-      background.style.backgroundImage = 'url("./img/'+_letter.toLowerCase()+'.png")';
+      background.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
       ind++;
     } 
     else if(Math.abs(distanceX) <= proximityThreshold2 && Math.abs(distanceY) <= proximityThreshold2){
       infoElement.style.backgroundImage = 'url("./img/tag2.png")';
-      background.style.backgroundImage = 'url("./img/'+_letter.toLowerCase()+'.png")';
+      background.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
     }
     else {
       // Change the border color back to normal
