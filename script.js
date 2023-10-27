@@ -272,7 +272,7 @@ function gameManager(_gameStep){
    case 7:
       game.classList.add('hide');
       cuestions.classList.add('hide');
-      if(gano){
+      if(gano == true){
         winner.classList.remove('hide');
         // MOSTRAR QR VICTORIOSO
       }
