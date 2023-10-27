@@ -158,7 +158,7 @@ let positions = [
     { value: "h", x: -49, y: -13 },
     { value: "i", x: -55, y: -13 },
     { value: "j", x: -60, y: -15 },
-    { value: "k", x: -66, y: -18 },
+    { value: "k", x: -68, y: -18 },
     { value: "l", x: -72, y: -22 },
     { value: "m", x: -78, y: -28 },
     { value: "n", x: -6, y: -47 },
