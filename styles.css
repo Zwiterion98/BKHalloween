@@ -120,7 +120,7 @@ input, button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 0.5em;
     background: url('./img/fondo.png') center center no-repeat;
     background-size: cover;
 }

@@ -316,14 +316,17 @@ function searchFor(_letter) {
     if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
       // Change the border color to green
       infoElement.style.backgroundImage = 'url("./img/tag2.png")';
+      background.style.backgroundImage = 'url("./img/'+_letter.toLowerCase()+'.png")';
       ind++;
     } 
     else if(Math.abs(distanceX) <= proximityThreshold2 && Math.abs(distanceY) <= proximityThreshold2){
       infoElement.style.backgroundImage = 'url("./img/tag2.png")';
+      background.style.backgroundImage = 'url("./img/'+_letter.toLowerCase()+'.png")';
     }
     else {
       // Change the border color back to normal
       infoElement.style.backgroundImage = 'url("./img/tag3.png")';
+      background.style.backgroundImage = 'url("./img/ouija-01.png")';
       
     }
 
