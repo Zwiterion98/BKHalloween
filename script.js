@@ -360,6 +360,7 @@ function getMobileOperatingSystem() {
 
   return "unknown";
 }
+
 let zAcc = 0;
 let horizontal = false;
 let inGame = false;
