@@ -275,7 +275,7 @@ function gameManager(_gameStep) {
       cuestions.classList.add('hide');
       if (gano == true) {
         winner.classList.remove('hide');
-        // MOSTRAR QR VICTORIOSO
+        loadQR();
       }
       else {
         loser.classList.remove('hide');
@@ -559,3 +559,19 @@ window.onload = () => {
   ])
 }
 
+async function loadQR() {
+
+  function getServerUrl() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'config.json', false);
+    xhr.send(null);
+    const data = JSON.parse(xhr.responseText);
+    return data.server_url;
+  }
+
+  SERVER_URL = getServerUrl();
+
+  const data = (await (await fetch(SERVER_URL + "/qr")).json()).qr;
+
+  alert(data)
+}
