@@ -223,6 +223,7 @@ input, button{
     background-size: contain;
     background-repeat: no-repeat;
     transform-origin: center center;
-    height: 60vw;
-    width: 60vw;
+    height: 40vw;
+    width: 40vw;
+    mix-blend-mode: multiply;
 }

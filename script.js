@@ -537,13 +537,14 @@ async function loadQR() {
 
   SERVER_URL = getServerUrl();
 
-  const data = (await (await fetch(SERVER_URL + "/qr")).json()).qr;
+  const data = (await (await fetch(SERVER_URL + "/qr")).json()).qr.name;
 
-  alert(data)
+  const qr = document.getElementById('QR');
+  const qrURL = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + data
+  qr.style.backgroundImage = `url("${qrURL}")`;
 }
 
 window.onload = () => {
-  loadQR()
   preloadImages([
     "ouija-01.png",
     "a.png",
