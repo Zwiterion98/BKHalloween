@@ -521,6 +521,7 @@ async function preloadImages(imageURLs) {
   imageURLs.forEach((url) => {
     const img = new Image();
     img.src = "./img/" + url;
+    console.log(img.src);
     images.push(img);
   });
 }
