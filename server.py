@@ -3,6 +3,7 @@ load_dotenv()
 from fastapi import FastAPI
 from utils import get_qr, update_qr, insert_qr
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -22,6 +23,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.mount("/", StaticFiles(directory="public", html=True), name="public")
 
 @app.get("/qr")
 def get_qr_route():

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Whooper Paranormal</title>
+</head>
+
+<body>
+    <section>
+        <img src="img/logo.png" alt="logo">
+        <br>
+        <h1>Para el correcto funcionamiento de la web ingresar desde un dispositivo celular</h1>
+        <h2>La promo comienza el 31/10/2023 a partir de las 22hs</h2>
+    </section>
+    <div id="splashscreen"></div>
+
+    <div id="permission" class="hide">
+        <p>Tenés que permitir <br>
+            acceso al giroscopio <br>
+            de tu smartphone <br>
+        </p>
+        <button id="accelPermsButton" onclick="passScreen()">Habilitar Gyroscopio</button>
+
+    </div>
+    <div id="tilt" class="hide">
+        <p>Para disfrutar <br>
+            la experiencia <br>
+            de manera óptima, <br>
+            apoyá tu smartphone <br>
+            sobre una mesa</p>
+
+    </div>
+    <div id="instructions" class="hide">
+        <p>Para jugar tenés <br>
+            que seguir <br>
+            2 simples pasos:
+        </p>
+        <p>Paso 1 <br>
+            Seleccionar <br>
+            una pregunta <br>
+            para el espíritu</p>
+        <p>Paso 2 <br>
+            Seguir la flecha <br>
+            hasta completar <br>
+            su respuesta
+        </p>
+
+    </div>
+    <div id="cuestions" class="hide">
+        <p> ¡Hacele una pregunta <br>
+            al espíritu!
+        </p>
+        <input type="button" value="¿Puedes mostrarnos un signo de tu presencia?" id="q1">
+        <input type="button" value="¿Puedes mostrarnos un signo de tu presencia?" id="q2">
+        <input type="button" value="¿Puedes mostrarnos un signo de tu presencia?" id="q3">
+    </div>
+    <div id="game" class="hide">
+        <div id="letra" class="hide"></div>
+        <div id="background">
+
+        </div>
+        <div id="info">
+
+        </div>
+    </div>
+    <div id="winner" class="hide">
+        <p style="color: #4E2313">Ganaste una</p>
+        <img src="img/logo.png" alt="logo" id="logoImg">
+        <div src="#" alt="QR" id="QR"></div>
+        <p style="color: #4E2313">
+            Presentá este código QR <br>
+            en cualquier castillo del reino
+        </p>
+    </div>
+    <div id="loser" class="hide">
+        <p>
+            EL ESPÍRITU <br>
+            SE HA MARCHADO
+        </p>
+
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
