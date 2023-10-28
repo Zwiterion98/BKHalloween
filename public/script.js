@@ -224,7 +224,11 @@ function gameManager(_gameStep) {
   switch (_gameStep) {
     case 0:
       splashscreen.classList.remove('hide');
-      setTimeout(passScreen, 5000);
+      const currentDate = new Date();
+      const targetDate = new Date(currentDate.getFullYear(), 9, 31);
+      if (currentDate >= targetDate) {
+        setTimeout(passScreen, 5000);
+      }
       break;
     case 1:
       splashscreen.classList.add('hide');
@@ -537,10 +541,14 @@ async function loadQR() {
 
   SERVER_URL = getServerUrl();
 
-  const data = (await (await fetch(SERVER_URL + "/qr")).json()).qr.name;
+  const data = (await (await fetch(SERVER_URL + "/qr")).json());
+
+  if (data.error) {
+    return
+  }
 
   const qr = document.getElementById('QR');
-  const qrURL = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + data
+  const qrURL = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + data.qr.name
   qr.style.backgroundImage = `url("${qrURL}")`;
 }
 

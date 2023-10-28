@@ -5,6 +5,7 @@ from utils import get_qr, update_qr, insert_qr
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
+from datetime import datetime
 
 app = FastAPI()
 
@@ -41,6 +42,12 @@ def get_html():
 def get_qr_route():
 
     try:
+        current_date = datetime.now()
+        target_date = datetime(current_date.year, 10, 31)
+
+        if current_date < target_date:
+            return {"error": "error"}
+
         qr = get_qr()
 
         if len(qr) == 0:
