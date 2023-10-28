@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from utils import get_qr, update_qr, insert_qr
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
@@ -23,7 +24,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/", StaticFiles(directory="public", html=True), name="public")
+app.mount("/public", StaticFiles(directory="public", html=True), name="public")
+
+@app.get("/")
+def get_html():
+    try:
+        with open("public/index.html", "rb") as file:
+            html_content = file.read()
+        return HTMLResponse(content=html_content)
+    except Exception as e:
+        print(e)
+        return {"error": "error"}
+    
 
 @app.get("/qr")
 def get_qr_route():

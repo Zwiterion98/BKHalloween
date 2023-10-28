@@ -316,20 +316,20 @@ function searchFor(_letter) {
 
     if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
       // Change the border color to green
-      infoElement.style.backgroundImage = 'url("./img/tag2.png")';
-      letra.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
+      infoElement.style.backgroundImage = 'url("/public/img/tag2.png")';
+      letra.style.backgroundImage = `url("/public/img/${targetPosition.value}.png")`;
       letra.classList.remove('hide');
       ind++;
     }
     else if (Math.abs(distanceX) <= proximityThreshold2 && Math.abs(distanceY) <= proximityThreshold2) {
-      infoElement.style.backgroundImage = 'url("./img/tag2.png")';
-      letra.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
+      infoElement.style.backgroundImage = 'url("/public/img/tag2.png")';
+      letra.style.backgroundImage = `url("/public/img/${targetPosition.value}.png")`;
       letra.classList.remove('hide');
     }
     else {
       // Change the border color back to normal
-      infoElement.style.backgroundImage = 'url("./img/tag3.png")';
-      letra.style.backgroundImage = 'url("./img/fondoNone.png")';
+      infoElement.style.backgroundImage = 'url("/public/img/tag3.png")';
+      letra.style.backgroundImage = 'url("/public/img/fondoNone.png")';
       letra.classList.add('hide');
 
     }
@@ -520,7 +520,7 @@ function setGyro() {
 function preloadImages(imageURLs) {
   imageURLs.forEach((url) => {
     const img = new Image();
-    img.src = "./img/" + url;
+    img.src = "/public/img/" + url;
     images.push(img);
   });
 }
