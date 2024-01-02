@@ -1,7 +1,7 @@
 /*13*/
 @font-face {
     font-family: "Flame Bold";
-    src: url("fonts/FlameBold.woff");
+    src: url("/public/fonts/FlameBold.woff");
 }
 
 *{
@@ -18,7 +18,7 @@ section{
     align-items: center;
     gap: 2em;
     background-color: #F4ECDD;
-    background-image: url("img/fondoWeb.png");
+    background-image: url("/public/img/fondoWeb.png");
     background-size: cover;
     z-index: 2;
     height: 100vh;
@@ -61,7 +61,7 @@ body {
 #splashscreen{
     height: 100vh;
     width: 100vw;
-    background: url('./img/splashscreen.png') center center no-repeat;
+    background: url('/public/img/splashscreen.png') center center no-repeat;
     background-size: cover;
 }
 
@@ -73,7 +73,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1em;
-    background: url('./img/fondo.png') center center no-repeat;
+    background: url('/public/img/fondo.png') center center no-repeat;
     background-size: cover;
 }
 
@@ -109,7 +109,7 @@ input, button{
     justify-content: center;
     align-items: center;
     gap: 1em;
-    background: url('./img/fondo.png') center center no-repeat;
+    background: url('/public/img/fondo.png') center center no-repeat;
     background-size: cover;
 }
 
@@ -121,7 +121,7 @@ input, button{
     padding-top: 10em;
     justify-content: start;
     align-items: center;
-    background: url('./img/fondo.png') center center no-repeat;
+    background: url('/public/img/fondo.png') center center no-repeat;
     background-size: cover;
 }
 
@@ -133,14 +133,14 @@ input, button{
     justify-content: center;
     align-items: center;
     gap: 1em;
-    background: url('./img/fondo.png') center center no-repeat;
+    background: url('/public/img/fondo.png') center center no-repeat;
     background-size: cover;
 }
 
 #winner{
     height: 100vh;
     width: 100vw;
-    background: url('./img/fondo2.png') center center no-repeat;
+    background: url('/public/img/fondo2.png') center center no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -156,7 +156,7 @@ input, button{
 #loser{
     height: 100vh;
     width: 100vw;
-    background: url('./img/fondo.png') center center no-repeat;
+    background: url('/public/img/fondo.png') center center no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -173,7 +173,7 @@ input, button{
     justify-content: center;
     align-items: center;
     gap: 1em;
-    background: url('./img/fondo.png') center center no-repeat;
+    background: url('/public/img/fondo.png') center center no-repeat;
     background-size: cover;
 }
 
@@ -190,7 +190,7 @@ input, button{
     position: absolute;
     height: 300%;
     width: 800%;
-    background: url('./img/ouija-01.png') center center no-repeat;
+    background: url('/public/img/ouija-01.png') center center no-repeat;
     background-size: cover;
     transform-origin: center center;
     transform: translate(50%, 50%);
@@ -201,14 +201,14 @@ input, button{
     position: absolute;
     height: 300%;
     width: 800%;
-    background: url('./img/ouija-01.png') center center no-repeat;
+    background: url('/public/img/ouija-01.png') center center no-repeat;
     background-size: cover;
     transform-origin: center center;
     transform: translate(50%, 50%);
 }
 
 #info{
-    background: url('./img/tag3.png') center center no-repeat;
+    background: url('/public/img/tag3.png') center center no-repeat;
     background-size: cover;
     position: fixed;
     top: 40vh;
@@ -225,4 +225,5 @@ input, button{
     transform-origin: center center;
     height: 40vw;
     width: 40vw;
+    mix-blend-mode: multiply;
 }

@@ -224,7 +224,11 @@ function gameManager(_gameStep) {
   switch (_gameStep) {
     case 0:
       splashscreen.classList.remove('hide');
-      setTimeout(passScreen, 5000);
+      const currentDate = new Date();
+      const targetDate = new Date(currentDate.getFullYear(), 9, 31);
+      if (currentDate >= targetDate) {
+        setTimeout(passScreen, 5000);
+      }
       break;
     case 1:
       splashscreen.classList.add('hide');
@@ -275,7 +279,7 @@ function gameManager(_gameStep) {
       cuestions.classList.add('hide');
       if (gano == true) {
         winner.classList.remove('hide');
-        // MOSTRAR QR VICTORIOSO
+        loadQR();
       }
       else {
         loser.classList.remove('hide');
@@ -316,20 +320,20 @@ function searchFor(_letter) {
 
     if (Math.abs(distanceX) <= proximityThreshold && Math.abs(distanceY) <= proximityThreshold) {
       // Change the border color to green
-      infoElement.style.backgroundImage = 'url("./img/tag2.png")';
-      letra.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
+      infoElement.style.backgroundImage = 'url("/public/img/tag2.png")';
+      letra.style.backgroundImage = `url("/public/img/${targetPosition.value}.png")`;
       letra.classList.remove('hide');
       ind++;
     }
     else if (Math.abs(distanceX) <= proximityThreshold2 && Math.abs(distanceY) <= proximityThreshold2) {
-      infoElement.style.backgroundImage = 'url("./img/tag2.png")';
-      letra.style.backgroundImage = `url("./img/${targetPosition.value}.png")`;
+      infoElement.style.backgroundImage = 'url("/public/img/tag2.png")';
+      letra.style.backgroundImage = `url("/public/img/${targetPosition.value}.png")`;
       letra.classList.remove('hide');
     }
     else {
       // Change the border color back to normal
-      infoElement.style.backgroundImage = 'url("./img/tag3.png")';
-      letra.style.backgroundImage = 'url("./img/fondoNone.png")';
+      infoElement.style.backgroundImage = 'url("/public/img/tag3.png")';
+      letra.style.backgroundImage = 'url("/public/img/fondoNone.png")';
       letra.classList.add('hide');
 
     }
@@ -517,12 +521,35 @@ function setGyro() {
   }
 }
 
-async function preloadImages(imageURLs) {
+function preloadImages(imageURLs) {
   imageURLs.forEach((url) => {
     const img = new Image();
-    img.src = "./img/" + url;
+    img.src = "/public/img/" + url;
     images.push(img);
   });
+}
+
+async function loadQR() {
+
+  function getServerUrl() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'config.json', false);
+    xhr.send(null);
+    const data = JSON.parse(xhr.responseText);
+    return data.server_url;
+  }
+
+  SERVER_URL = getServerUrl();
+
+  const data = (await (await fetch(SERVER_URL + "/qr")).json());
+
+  if (data.error) {
+    return
+  }
+
+  const qr = document.getElementById('QR');
+  const qrURL = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + data.qr.name
+  qr.style.backgroundImage = `url("${qrURL}")`;
 }
 
 window.onload = () => {
@@ -558,4 +585,3 @@ window.onload = () => {
     "fondo2.png"
   ])
 }
-
